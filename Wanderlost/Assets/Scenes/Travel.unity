@@ -376,7 +376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -230, y: -100}
+  m_AnchoredPosition: {x: -230, y: -85}
   m_SizeDelta: {x: 285, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486988007
@@ -399,13 +399,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Weather: XXXXX
+  m_text: 'Day X of XXXX
+
+    Weather: XXXXX
 
     Health: XXXXX
 
     Pace: XXXXX
 
-    Rations: XXXXX'
+    Rations:
+    XXXXX'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
   m_sharedMaterial: {fileID: 8097253542782960286, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}

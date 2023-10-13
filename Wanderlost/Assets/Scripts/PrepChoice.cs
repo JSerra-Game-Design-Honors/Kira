@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PrepChoice : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PrepChoice : MonoBehaviour
                 {
                     case 1:
                         Debug.Log("Activating Choice 1");
+                        SceneManager.LoadScene(1);
                         break;
 
                     case 2:
