@@ -25,12 +25,14 @@ public class TravelEvent : MonoBehaviour
         }
         if (isTraveling)
         {
-            Debug.Log("hi");
+            prompt.text = "Press SPACE to stop.";
+            //Debug.Log("space on");
             passDay();
         }
         else
         {
-
+            prompt.text = "Press SPACE to continue.";
+            //Debug.Log("space off");
         }
     }
 
