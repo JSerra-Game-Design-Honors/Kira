@@ -8,12 +8,14 @@ public class TravelEvent : MonoBehaviour
 {
     public bool isTraveling;
     public TMP_Text prompt;
+    public Animation walkAnim;
 
     // Start is called before the first frame update
     void Start()
     {
         prompt.text = "Press SPACE to continue.";
         isTraveling = false;
+        walkAnim = GetComponent<Animation>();
     }
     // Update is called once per frame
     void Update()
@@ -21,6 +23,7 @@ public class TravelEvent : MonoBehaviour
         //Debug.Log("we are updating wohoo!");
         if (Input.GetKeyDown("space"))
         {
+            walkAnim.Stop();
             isTraveling = !isTraveling;
         }
         if (isTraveling)
@@ -38,6 +41,6 @@ public class TravelEvent : MonoBehaviour
 
     void passDay()
     {
-
+        
     }
 }
