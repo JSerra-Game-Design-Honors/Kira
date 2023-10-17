@@ -1005,7 +1005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTraveling: 0
   prompt: {fileID: 260812189}
-  walkAnim: {fileID: 0}
 --- !u!4 &1308791746
 Transform:
   m_ObjectHideFlags: 0
