@@ -1,27 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.Animations;
+//using UnityEngine.Animations;
 
 public class WalkScript : MonoBehaviour
 {
-    private Animation anim;
+    bool traveling = false;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<Animation>();
+        animator = GetComponent<Animator>();
+        animator.speed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKeyDown("space"))
         {
-            anim.Play("AnimationTravelerWalk");
-        }else
-        {
-            anim.Play("AnimationTravelerIdle");
+            traveling = !traveling;
+            if (!traveling)
+            {
+                UnityEngine.Debug.Log("Stop!");
+                animator.speed = 0;
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Start!");
+                animator.speed = 1;
+            }
         }
     }
 }
