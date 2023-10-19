@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WalkScript : MonoBehaviour
 {
-    bool traveling = false;
+    //bool traveling = false;
     Animator animator;
 
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class WalkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown("space"))
         {
             traveling = !traveling;
@@ -32,6 +33,17 @@ public class WalkScript : MonoBehaviour
                 UnityEngine.Debug.Log("Start!");
                 animator.speed = 1;
             }
-        }
+        }*/
+    }
+
+    public void walkStart()
+    {
+        //UnityEngine.Debug.Log("Start!");
+        animator.speed = 1;
+    }
+
+    public void walkStop()
+    {
+        animator.speed = 0;
     }
 }

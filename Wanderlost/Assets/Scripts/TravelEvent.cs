@@ -6,12 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class TravelEvent : MonoBehaviour
 {
-    public bool isTraveling;
+    [SerializeField]
+    GameObject one, two, three, four, five;
+
+    GameObject[] party = new GameObject[5];
+    bool isTraveling;
     public TMP_Text prompt;
+
+    //STATS
+    int days = 1;
+    string season = "Summer";
+    string weather;
+    string health1;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        createParty();
         prompt.text = "Press SPACE to continue.";
         isTraveling = false;
     }
@@ -38,6 +50,24 @@ public class TravelEvent : MonoBehaviour
 
     void passDay()
     {
-        
+        for(int i = 0; i < party.Length; i++)
+        {
+            party[i].GetComponent<WalkScript>().walkStart();
+        }
+
+        //stats
+
+        for (int i = 0; i < party.Length; i++)
+        {
+            party[i].GetComponent<WalkScript>().walkStop();
+        }
+    }
+    void createParty()
+    {
+        party[0] = one;
+        party[1] = two;
+        party[2] = three;
+        party[3] = four;
+        party[4] = five;
     }
 }

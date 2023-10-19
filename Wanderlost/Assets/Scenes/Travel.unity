@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 72620597}
   - component: {fileID: 72620599}
   m_Layer: 0
-  m_Name: Cat (3)
+  m_Name: Traveler3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 317185207}
   - component: {fileID: 317185209}
   m_Layer: 0
-  m_Name: Cat (5)
+  m_Name: Traveler5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 575008527}
   - component: {fileID: 575008530}
   m_Layer: 0
-  m_Name: Cat (1)
+  m_Name: Traveler1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 665421560}
   - component: {fileID: 665421562}
   m_Layer: 0
-  m_Name: Cat (4)
+  m_Name: Traveler4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 959825457}
   - component: {fileID: 959825459}
   m_Layer: 0
-  m_Name: Cat (2)
+  m_Name: Traveler2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1273,7 +1273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d8417c2536bfe4fbb773237bf1853e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTraveling: 0
+  one: {fileID: 575008526}
+  two: {fileID: 959825455}
+  three: {fileID: 72620595}
+  four: {fileID: 665421558}
+  five: {fileID: 317185205}
   prompt: {fileID: 260812189}
 --- !u!4 &1308791746
 Transform:
