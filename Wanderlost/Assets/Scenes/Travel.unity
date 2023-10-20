@@ -547,16 +547,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day X of XXXX
+  m_text: 'Day X of XXXXX
 
     Weather: XXXXX
 
     Health: XXXXX
 
-    Pace: XXXXX
+    Food: XXXXX
+    portions
 
-    Rations:
-    XXXXX'
+    Next Wayfinder: XXXXX paces'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
   m_sharedMaterial: {fileID: 8097253542782960286, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1278,7 +1278,8 @@ MonoBehaviour:
   three: {fileID: 72620595}
   four: {fileID: 665421558}
   five: {fileID: 317185205}
-  prompt: {fileID: 260812189}
+  promptText: {fileID: 260812189}
+  statsText: {fileID: 486988007}
 --- !u!4 &1308791746
 Transform:
   m_ObjectHideFlags: 0

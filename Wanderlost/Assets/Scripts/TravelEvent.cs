@@ -11,20 +11,27 @@ public class TravelEvent : MonoBehaviour
 
     GameObject[] party = new GameObject[5];
     bool isTraveling;
-    public TMP_Text prompt;
 
-    //STATS
-    int days = 1;
-    string season = "Summer";
-    string weather;
-    string health1;
+    public TMP_Text promptText;
+    public TMP_Text statsText;
+
+    string[] seasonsSet = {"Summer", "Autumn", "Winter", "Spring"};
+
+    //STATS - **PLACEHOLDER STATS... TO BE REPLACED**
+    int day = 1;
+    int seasonNum = 0;
+    string weather = "Warm";
+    string health = "Good";
+    int food = 500;
+    int nextWay = 100;
 
 
     // Start is called before the first frame update
     void Start()
     {
         createParty();
-        prompt.text = "Press SPACE to continue.";
+        setStats();
+        promptText.text = "Press SPACE to continue.";
         isTraveling = false;
     }
     // Update is called once per frame
@@ -34,28 +41,32 @@ public class TravelEvent : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             isTraveling = !isTraveling;
-        }
+        
         if (isTraveling)
         {
-            prompt.text = "Press SPACE to stop.";
+            promptText.text = "Press SPACE to stop.";
             //Debug.Log("space on");
             passDay();
         }
         else
         {
-            prompt.text = "Press SPACE to continue.";
+            promptText.text = "Press SPACE to continue.";
             //Debug.Log("space off");
+        }
         }
     }
 
     void passDay()
     {
+        Debug.Log("day passed!");
         for(int i = 0; i < party.Length; i++)
         {
             party[i].GetComponent<WalkScript>().walkStart();
         }
 
         //stats
+        updateStats();
+        setStats();
 
         for (int i = 0; i < party.Length; i++)
         {
@@ -69,5 +80,32 @@ public class TravelEvent : MonoBehaviour
         party[2] = three;
         party[3] = four;
         party[4] = five;
+    }
+
+    void setStats()
+    {
+        statsText.text = "Day " + day + " of " + seasonsSet[seasonNum] + "\nWeather: " + weather + "\nHealth: " + health + "\nFood: " + food + " portions\nNext Wayfinder: " + nextWay + " paces";
+    }
+
+    void updateStats()
+    {
+        updateDate();
+    }
+
+    void updateDate()
+    {
+        day += 1;
+        if (day > 100)
+        {
+            day = 1;
+            if (seasonNum == 3)
+            {
+                seasonNum = 0;
+            }
+            else
+            {
+                seasonNum++;
+            }
+        }
     }
 }
