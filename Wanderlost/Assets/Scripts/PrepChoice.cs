@@ -37,9 +37,9 @@ public class PrepChoice : MonoBehaviour
                     case 3:
                         Debug.Log("Activating Choice 3");
                         break;
-
                     case 4:
                         Debug.Log("Activating Choice 4");
+                        SceneManager.LoadScene(2);
                         break;
 
                     case 5:

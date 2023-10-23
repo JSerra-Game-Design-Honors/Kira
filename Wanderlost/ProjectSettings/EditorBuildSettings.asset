@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Travel.unity
     guid: 7a36eef011c29aa4fb0cf7e1622e7f75
+  - enabled: 1
+    path: Assets/Scenes/Pace.unity
+    guid: af274c1c2ecaede43a0b8434d3ebe50b
   m_configObjects: {}

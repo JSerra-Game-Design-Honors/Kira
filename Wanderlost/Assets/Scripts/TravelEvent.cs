@@ -84,7 +84,7 @@ public class TravelEvent : MonoBehaviour
 
     void setStats()
     {
-        statsText.text = "Day " + day + " of " + seasonsSet[seasonNum] + "\nWeather: " + weather + "\nHealth: " + health + "\nFood: " + food + " portions\nNext Wayfinder: " + nextWay + " paces";
+        statsText.text = "Day " + day + " of " + seasonsSet[seasonNum] + "\nWeather: " + weather + "\nHealth: " + health + "\nFood: " + food + " portions\nNext Wayfinder: " + nextWay + " leagues";
     }
 
     void updateStats()
