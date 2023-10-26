@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Prep.unity
     guid: 4e11832a7ead541428ae89cb9bc993e2
@@ -16,5 +13,8 @@ EditorBuildSettings:
     guid: 7a36eef011c29aa4fb0cf7e1622e7f75
   - enabled: 1
     path: Assets/Scenes/Pace.unity
-    guid: af274c1c2ecaede43a0b8434d3ebe50b
+    guid: 8667cfa7ccb3bc84ba3571be4bef20a8
+  - enabled: 1
+    path: Assets/Scenes/Rations.unity
+    guid: a31cd388ad46c67488da67cc3ba0d98a
   m_configObjects: {}

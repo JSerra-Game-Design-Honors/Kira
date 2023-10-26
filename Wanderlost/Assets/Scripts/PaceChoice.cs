@@ -30,16 +30,16 @@ public class PaceChoice : MonoBehaviour
                 {
                     case 1:
                         Debug.Log("Changing to steady");
-                        tempPace = "steady";
+                        tempPace = "Steady";
                         break;
                     case 2:
                         Debug.Log("Changing to strenuous");
-                        tempPace = "strenuous";
+                        tempPace = "Strenuous";
                         break;
 
                     case 3:
                         Debug.Log("Changing to grueling");
-                        tempPace = "grueling";
+                        tempPace = "Grueling";
                         break;
                 }
                 StatsManager.changePace(tempPace);

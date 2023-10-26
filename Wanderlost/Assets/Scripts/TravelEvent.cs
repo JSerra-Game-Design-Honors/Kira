@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class TravelEvent : MonoBehaviour
 {
@@ -15,22 +16,12 @@ public class TravelEvent : MonoBehaviour
     public TMP_Text promptText;
     public TMP_Text statsText;
 
-    string[] seasonsSet = {"Summer", "Autumn", "Winter", "Spring"};
-
-    //STATS - **PLACEHOLDER STATS... TO BE REPLACED**
-    int day = 1;
-    int seasonNum = 0;
-    string weather = "Warm";
-    string health = "Good";
-    int food = 500;
-    int nextWay = 100;
-
-
     // Start is called before the first frame update
     void Start()
     {
         createParty();
         setStats();
+        Invoke("updateStats", 3);
         promptText.text = "Press SPACE to continue.";
         isTraveling = false;
     }
@@ -58,14 +49,16 @@ public class TravelEvent : MonoBehaviour
 
     void passDay()
     {
-        Debug.Log("day passed!");
+        UnityEngine.Debug.Log("day passed!");
         for(int i = 0; i < party.Length; i++)
         {
             party[i].GetComponent<WalkScript>().walkStart();
         }
 
         //stats
+        UnityEngine.Debug.Log("waiting...");
         updateStats();
+        UnityEngine.Debug.Log("done!");
         setStats();
 
         for (int i = 0; i < party.Length; i++)
@@ -84,28 +77,11 @@ public class TravelEvent : MonoBehaviour
 
     void setStats()
     {
-        statsText.text = "Day " + day + " of " + seasonsSet[seasonNum] + "\nWeather: " + weather + "\nHealth: " + health + "\nFood: " + food + " portions\nNext Wayfinder: " + nextWay + " leagues";
+        statsText.text = "Day " + StatsManager.day + " of " + StatsManager.seasonsSet[StatsManager.seasonNum] + "\nWeather: " + StatsManager.weather + "\nHealth: " + StatsManager.health + "\nFood: " + StatsManager.food + " portions\nNext Wayfinder: " + StatsManager.nextWay + " leagues";
     }
 
     void updateStats()
     {
-        updateDate();
-    }
-
-    void updateDate()
-    {
-        day += 1;
-        if (day > 100)
-        {
-            day = 1;
-            if (seasonNum == 3)
-            {
-                seasonNum = 0;
-            }
-            else
-            {
-                seasonNum++;
-            }
-        }
+        StatsManager.updateDate();
     }
 }

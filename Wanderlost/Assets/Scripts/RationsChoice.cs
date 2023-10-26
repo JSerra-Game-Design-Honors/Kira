@@ -30,19 +30,19 @@ public class RationsChoice : MonoBehaviour
                 {
                     case 1:
                         Debug.Log("Changing to steady");
-                        tempRations = "filling";
+                        tempRations = "Filling";
                         break;
                     case 2:
                         Debug.Log("Changing to strenuous");
-                        tempRations = "meager";
+                        tempRations = "Meager";
                         break;
 
                     case 3:
                         Debug.Log("Changing to grueling");
-                        tempRations = "bare bones";
+                        tempRations = "Bare bones";
                         break;
                 }
-                StatsManager.changePace(tempRations);
+                StatsManager.changeRations(tempRations);
                 Debug.Log(StatsManager.pace);
                 SceneManager.LoadScene(0);
             }

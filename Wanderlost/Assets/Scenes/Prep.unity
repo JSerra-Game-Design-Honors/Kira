@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 2034839765}
+  stats: {fileID: 1504517714}
   input: -1
 --- !u!4 &595369409
 Transform:

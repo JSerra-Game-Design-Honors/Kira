@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class PrepChoice : MonoBehaviour
 {
     public TMP_Text prompt;
+    public TMP_Text stats;
     public int input = -1;
 
     // Start is called before the first frame update
     void Start()
     {
         prompt.text = "Choice: _";
+        stats.text = "Weather: "+StatsManager.weather+"\nHealth: "+StatsManager.health+"\nPace: "+StatsManager.pace+"\nRations: "+StatsManager.rations;
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class PrepChoice : MonoBehaviour
 
                     case 5:
                         Debug.Log("Activating Choice 5");
+                        SceneManager.LoadScene(3);
                         break;
 
                     case 6:
