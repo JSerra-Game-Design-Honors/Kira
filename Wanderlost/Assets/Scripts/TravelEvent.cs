@@ -16,12 +16,13 @@ public class TravelEvent : MonoBehaviour
     public TMP_Text promptText;
     public TMP_Text statsText;
 
+    bool repeat;
+
     // Start is called before the first frame update
     void Start()
     {
         createParty();
         setStats();
-        Invoke("updateStats", 3);
         promptText.text = "Press SPACE to continue.";
         isTraveling = false;
     }
@@ -36,8 +37,9 @@ public class TravelEvent : MonoBehaviour
         if (isTraveling)
         {
             promptText.text = "Press SPACE to stop.";
-            //Debug.Log("space on");
+
             passDay();
+            //Debug.Log("space on");
         }
         else
         {
@@ -49,22 +51,15 @@ public class TravelEvent : MonoBehaviour
 
     void passDay()
     {
-        UnityEngine.Debug.Log("day passed!");
-        for(int i = 0; i < party.Length; i++)
-        {
-            party[i].GetComponent<WalkScript>().walkStart();
-        }
+        //while (isTraveling)
+        //{
+            startParty();
+            updateStats();
+            Invoke("stopParty", 4);
+            Invoke("setStats", 4);
 
-        //stats
-        UnityEngine.Debug.Log("waiting...");
-        updateStats();
-        UnityEngine.Debug.Log("done!");
-        setStats();
-
-        for (int i = 0; i < party.Length; i++)
-        {
-            party[i].GetComponent<WalkScript>().walkStop();
-        }
+            UnityEngine.Debug.Log("day passed!");
+        //}
     }
     void createParty()
     {
@@ -83,5 +78,25 @@ public class TravelEvent : MonoBehaviour
     void updateStats()
     {
         StatsManager.updateDate();
+        StatsManager.chooseWeather();
+        StatsManager.updateHealth();
+        StatsManager.updateFood();
+        StatsManager.updateDistance();
+    }
+
+    void startParty()
+    {
+        for (int i = 0; i < party.Length; i++)
+        {
+            party[i].GetComponent<WalkScript>().walkStart();
+        }
+    }
+
+    void stopParty()
+    {
+        for (int i = 0; i < party.Length; i++)
+        {
+            party[i].GetComponent<WalkScript>().walkStop();
+        }
     }
 }
