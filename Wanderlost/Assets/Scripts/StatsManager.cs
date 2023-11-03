@@ -58,7 +58,7 @@ public class StatsManager : MonoBehaviour{
             weather = weatherSet[seasonNum, 1];
             weatherNum = 1;
         }
-        else if(num <= 90)
+        else if(num <= 95)
         {
             weather = weatherSet[seasonNum, 2];
             weatherNum = 2;
@@ -170,3 +170,18 @@ public class StatsManager : MonoBehaviour{
         }
     }
 }
+
+/*
+ * Health lost = pace penalty + rations penalty + weather penalty (+ random event) penalty
+ * 
+ * PACE
+ * Steady: -2 (50 lower cap)
+ * Strenuous: -4
+ * Grueling: -6
+ * 
+ * RATIONS
+ * Filling:
+ * Meager:
+ * Bare Bones:
+ * 
+ */

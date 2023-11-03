@@ -38,14 +38,27 @@ public class TravelEvent : MonoBehaviour
         {
             promptText.text = "Press SPACE to stop.";
 
-            passDay();
+            StartCoroutine(startDayCycle());
             //Debug.Log("space on");
         }
         else
         {
-            promptText.text = "Press SPACE to continue.";
+            //promptText.text = "Press SPACE to continue.";
+            SceneManager.LoadScene(0);
             //Debug.Log("space off");
         }
+        }
+    }
+    
+    IEnumerator startDayCycle()
+    {
+        while (true)
+        {
+            UnityEngine.Debug.Log("repeat!");
+            repeat = false;
+
+            passDay();
+            yield return new WaitUntil(() => repeat == true);
         }
     }
 
@@ -54,11 +67,12 @@ public class TravelEvent : MonoBehaviour
         //while (isTraveling)
         //{
             startParty();
-            updateStats();
-            Invoke("stopParty", 4);
-            Invoke("setStats", 4);
+            Invoke("stopParty", 2);
+            Invoke("updateStats", 2);
+            Invoke("setStats", 2);
+            Invoke("resetLoop", 4);
 
-            UnityEngine.Debug.Log("day passed!");
+        UnityEngine.Debug.Log("day passed!");
         //}
     }
     void createParty()
@@ -98,5 +112,10 @@ public class TravelEvent : MonoBehaviour
         {
             party[i].GetComponent<WalkScript>().walkStop();
         }
+    }
+
+    void resetLoop()
+    {
+        repeat = true;
     }
 }
