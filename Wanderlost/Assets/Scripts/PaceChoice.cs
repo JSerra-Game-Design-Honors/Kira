@@ -15,7 +15,7 @@ public class PaceChoice : MonoBehaviour
     void Start()
     {
         prompt.text = "Choice: _";
-        currently.text = "We are currently traveling at a "+StatsManager.pace+" pace.";
+        currently.text = "We are currently traveling at a <color=#ff0083>" + StatsManager.pace+ "</color> pace.";
     }
 
     // Update is called once per frame
@@ -54,17 +54,17 @@ public class PaceChoice : MonoBehaviour
                 if (Input.GetKeyDown("1"))
                 {
                     input = 1;
-                    prompt.text = "Choice: 1";
+                    prompt.text = "Choice: <color=#00cbff>1</color>";
                 }
                 else if (Input.GetKeyDown("2"))
                 {
                     input = 2;
-                    prompt.text = "Choice: 2";
+                    prompt.text = "Choice: <color=#00cbff>2</color>";
                 }
                 else if (Input.GetKeyDown("3"))
                 {
                     input = 3;
-                    prompt.text = "Choice: 3";
+                    prompt.text = "Choice: <color=#00cbff>3</color>";
                 }
             }
             else

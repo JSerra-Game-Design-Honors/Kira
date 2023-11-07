@@ -23,7 +23,7 @@ public class TravelEvent : MonoBehaviour
     {
         createParty();
         setStats();
-        promptText.text = "Press SPACE to continue.";
+        promptText.text = "Press <color=#00cbff>SPACE</color> to continue.";
         isTraveling = false;
     }
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class TravelEvent : MonoBehaviour
         
         if (isTraveling)
         {
-            promptText.text = "Press SPACE to stop.";
+            promptText.text = "Press <color=#00cbff>SPACE</color> to stop.";
 
             StartCoroutine(startDayCycle());
             //Debug.Log("space on");
@@ -86,7 +86,7 @@ public class TravelEvent : MonoBehaviour
 
     void setStats()
     {
-        statsText.text = "Day " + StatsManager.day + " of " + StatsManager.seasonsSet[StatsManager.seasonNum] + "\nWeather: " + StatsManager.weather + "\nHealth: " + StatsManager.health + "\nFood: " + StatsManager.food + " portions\nNext Wayfinder: " + StatsManager.nextWay + " leagues";
+        statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions\nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
     }
 
     void updateStats()

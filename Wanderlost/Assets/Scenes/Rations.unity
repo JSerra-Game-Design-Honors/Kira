@@ -577,11 +577,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Filling rations
+  m_text: '<color=#00cbff>1.</color> Filling rations
 
-    2. Meager rations
+    <color=#00cbff>2.</color>
+    Meager rations
 
-    3. Bare bones rations'
+    <color=#00cbff>3.</color> Bare bones rations'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
   m_sharedMaterial: {fileID: 8097253542782960286, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}

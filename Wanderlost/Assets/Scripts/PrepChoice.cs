@@ -14,7 +14,7 @@ public class PrepChoice : MonoBehaviour
     void Start()
     {
         prompt.text = "Choice: _";
-        stats.text = "Weather: "+StatsManager.weather+"\nHealth: "+StatsManager.health+"\nPace: "+StatsManager.pace+"\nRations: "+StatsManager.rations;
+        stats.text = "Weather: <color=#ff0083>" + StatsManager.weather+ "</color>\nHealth: <color=#ff0083>" + StatsManager.health+ "</color>\nPace: <color=#ff0083>" + StatsManager.pace+ "</color>\nRations: <color=#ff0083>" + StatsManager.rations+ "</color>";
     }
 
     // Update is called once per frame
@@ -71,42 +71,42 @@ public class PrepChoice : MonoBehaviour
                 {
                     //Debug.Log("choice ooone!");
                     input = 1;
-                    prompt.text = "Choice: 1";
+                    prompt.text = "Choice: <color=#00cbff>1</color>";
                 }
                 else if (Input.GetKeyDown("2"))
                 {
                     input = 2;
-                    prompt.text = "Choice: 2";
+                    prompt.text = "Choice: <color=#00cbff>2</color>";
                 }
                 else if (Input.GetKeyDown("3"))
                 {
                     input = 3;
-                    prompt.text = "Choice: 3";
+                    prompt.text = "Choice: <color=#00cbff>3</color>";
                 }
                 else if (Input.GetKeyDown("4"))
                 {
                     input = 4;
-                    prompt.text = "Choice: 4";
+                    prompt.text = "Choice: <color=#00cbff>4</color>";
                 }
                 else if (Input.GetKeyDown("5"))
                 {
                     input = 5;
-                    prompt.text = "Choice: 5";
+                    prompt.text = "Choice: <color=#00cbff>5</color>";
                 }
                 else if (Input.GetKeyDown("6"))
                 {
                     input = 6;
-                    prompt.text = "Choice: 6";
+                    prompt.text = "Choice: <color=#00cbff>6</color>";
                 }
                 else if (Input.GetKeyDown("7"))
                 {
                     input = 7;
-                    prompt.text = "Choice: 7";
+                    prompt.text = "Choice: <color=#00cbff>7</color>";
                 }
                 else if (Input.GetKeyDown("8"))
                 {
                     input = 8;
-                    prompt.text = "Choice: 8";
+                    prompt.text = "Choice: <color=#00cbff>8</color>";
                 }
             }
             else

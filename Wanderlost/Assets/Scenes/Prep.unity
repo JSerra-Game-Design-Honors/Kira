@@ -180,13 +180,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '5. Change rations
+  m_text: '<color=#00cbff>5.</color> Change rations
 
-    6. Rest
+    <color=#00cbff>6.</color>
+    Rest
 
-    7. Attempt to trade
+    <color=#00cbff>7.</color> Attempt to trade
 
-    8. Hunt'
+    <color=#00cbff>8.</color>
+    Hunt'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
   m_sharedMaterial: {fileID: 8097253542782960286, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
@@ -454,16 +456,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Continue
+  m_text: '<color=#00cbff>1.</color> Continue
 
-    2. Check supplies
+    <color=#00cbff>2.</color> Check
+    supplies
 
-    3. Look at the map
+    <color=#00cbff>3.</color> Look at the map
 
-    4. Change
-    pace
-
-'
+    <color=#00cbff>4.</color>
+    Change pace'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
   m_sharedMaterial: {fileID: 8097253542782960286, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
