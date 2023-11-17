@@ -7,7 +7,7 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int healthNum = 100;
+    public static int[] healthNum = { 100, 100, 100, 100, 100 };
 
     public static int day = 1;
     public static int seasonNum = 0;
@@ -72,7 +72,123 @@ public class StatsManager : MonoBehaviour{
     //rations 30, pace 30, weather 20, other 20
     public static void updateHealth()
     {
+        for (int i = 0; i < healthNum.Length; i++)
+        {
+            if(!(healthNum[i] <= 0))
+            {
+                healthNum[i] -= calculatePenalty();
+
+                if (healthNum[i] <=0)
+                {
+                    //player death
+                }
+
+                //continue
+            }
+            
+        }
+            
+    }
+
+    public static int calculatePenalty()
+    {
         int temp = 0;
+
+        //RATIONS FACTOR
+        if (rations == "Filling")
+        {
+            temp += +2;
+        }
+        else if (rations == "Meager")
+        {
+            temp += -4;
+        }
+        else
+        {
+            temp += -6;
+        }
+
+        //PACE FACTOR
+        if (pace == "Steady")
+        {
+            temp += -2;
+        }
+        else if (pace == "Strenuous")
+        {
+            temp += -4;
+        }
+        else
+        {
+            temp += -6;
+        }
+
+        //WEATHER FACTOR
+        if (weatherSet[seasonNum, weatherNum] == "Cool" || weatherSet[seasonNum, weatherNum] == "Warm")
+        {
+            temp += 0;
+        }
+        else if (weatherSet[seasonNum, weatherNum] == "Cold" || weatherSet[seasonNum, weatherNum] == "Hot")
+        {
+            temp += -1;
+        }
+        else if (weatherSet[seasonNum, weatherNum] == "Very Cold" || weatherSet[seasonNum, weatherNum] == "Very Hot" || weatherSet[seasonNum, weatherNum] == "Rainy")
+        {
+            temp += -2;
+        }
+        else if (weatherSet[seasonNum, weatherNum] == "Blizzard" || weatherSet[seasonNum, weatherNum] == "Heat Wave")
+        {
+            temp += -4;
+        }
+
+        return temp;
+    }
+
+    public static void updateFood()
+    {
+        if(rations == "Filling")
+        {
+            food -= 20 * alive;
+        } else if(rations == "Meager")
+        {
+            food -= 10 * alive;
+        }
+        else
+        {
+            food -= 5 * alive;
+        }
+    }
+
+    public static void updateDistance()
+    {
+        if (pace == "Steady")
+        {
+            nextWay -= 10;
+        }
+        else if (pace == "Strenuous")
+        {
+            nextWay -= 30;
+        }
+        else
+        {
+            nextWay -= 50;
+        }
+    }
+}
+
+/*
+ * Health lost = pace penalty + rations penalty + weather penalty (+ random event) penalty
+ * 
+ * PACE
+ * Steady: -2 (50 lower cap)
+ * Strenuous: -4
+ * Grueling: -6
+ * 
+ * RATIONS
+ * Filling:
+ * Meager:
+ * Bare Bones:
+ * 
+ * int temp = 0;
 
         //RATIONS FACTOR
         if (rations == "Filling")
@@ -137,51 +253,4 @@ public class StatsManager : MonoBehaviour{
             health = "Good";
         }
         healthNum = temp;
-    }
-
-    public static void updateFood()
-    {
-        if(rations == "Filling")
-        {
-            food -= 20 * alive;
-        } else if(rations == "Meager")
-        {
-            food -= 10 * alive;
-        }
-        else
-        {
-            food -= 5 * alive;
-        }
-    }
-
-    public static void updateDistance()
-    {
-        if (pace == "Steady")
-        {
-            nextWay -= 10;
-        }
-        else if (pace == "Strenuous")
-        {
-            nextWay -= 30;
-        }
-        else
-        {
-            nextWay -= 50;
-        }
-    }
-}
-
-/*
- * Health lost = pace penalty + rations penalty + weather penalty (+ random event) penalty
- * 
- * PACE
- * Steady: -2 (50 lower cap)
- * Strenuous: -4
- * Grueling: -6
- * 
- * RATIONS
- * Filling:
- * Meager:
- * Bare Bones:
- * 
  */
