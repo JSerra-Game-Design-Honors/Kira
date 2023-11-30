@@ -32,18 +32,20 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
+		Debug.Log("entered!");
 		if (other.tag == "Player") {
-			Collect ();
+			Collect();
 		}
 	}
 
 	public void Collect()
 	{
+		
 		if(collectSound)
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
 		if(collectEffect)
 			Instantiate(collectEffect, transform.position, Quaternion.identity);
-
+		
 		//Below is space to add in your code for what happens based on the collectible type
 
 		if (CollectibleType == CollectibleTypes.NoType) {
