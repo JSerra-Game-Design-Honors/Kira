@@ -72,22 +72,46 @@ public class StatsManager : MonoBehaviour{
     //rations 30, pace 30, weather 20, other 20
     public static void updateHealth()
     {
+        int totalHP = 0;
+        int aliveTemp = 0;
         for (int i = 0; i < healthNum.Length; i++)
         {
             if(!(healthNum[i] <= 0))
             {
-                healthNum[i] -= calculatePenalty();
+                healthNum[i] += calculatePenalty();
+
+                Debug.Log(healthNum[i]);
 
                 if (healthNum[i] <=0)
                 {
-                    //player death
+                    TravelEvent.deletePlayer(i);
+                } else {
+                    if(healthNum[i] > 100)
+                    {
+                        healthNum[i] = 100;
+                    }
+                    totalHP += healthNum[i];
+                    aliveTemp++;
                 }
-
-                //continue
             }
-            
         }
-            
+
+        alive = aliveTemp;
+        int averageHP = totalHP / alive;
+        Debug.Log(averageHP);
+
+        if (averageHP < 30)
+        {
+            health = "Poor";
+        }
+        else if (averageHP <= 70)
+        {
+            health = "Fair";
+        }
+        else
+        {
+            health = "Good";
+        }
     }
 
     public static int calculatePenalty()
@@ -135,11 +159,16 @@ public class StatsManager : MonoBehaviour{
         {
             temp += -2;
         }
+        else if (weatherSet[seasonNum, weatherNum] == "Stormy")
+        {
+            temp += -3;
+        }
         else if (weatherSet[seasonNum, weatherNum] == "Blizzard" || weatherSet[seasonNum, weatherNum] == "Heat Wave")
         {
             temp += -4;
         }
 
+        Debug.Log("penalty: " + temp);
         return temp;
     }
 

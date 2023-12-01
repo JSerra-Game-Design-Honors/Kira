@@ -118,4 +118,28 @@ public class TravelEvent : MonoBehaviour
     {
         repeat = true;
     }
+
+    public void deletePlayer(int playerNum)
+    {
+        if(playerNum == 1)
+        {
+            one.SetActive(false);
+        } 
+        else if (playerNum == 2)
+        {
+            two.SetActive(false);
+        }
+        else if (playerNum == 3)
+        {
+            three.SetActive(false);
+        }
+        else if (playerNum == 4)
+        {
+            four.SetActive(false);
+        }
+        else
+        {
+            five.SetActive(false);
+        }
+    }
 }
