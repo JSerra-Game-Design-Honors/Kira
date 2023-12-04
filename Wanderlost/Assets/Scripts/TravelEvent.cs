@@ -7,8 +7,8 @@ using System.Diagnostics;
 
 public class TravelEvent : MonoBehaviour
 {
-    [SerializeField]
-    GameObject one, two, three, four, five;
+
+    public GameObject one, two, three, four, five;
 
     GameObject[] party = new GameObject[5];
     bool isTraveling;
@@ -93,9 +93,9 @@ public class TravelEvent : MonoBehaviour
     {
         StatsManager.updateDate();
         StatsManager.chooseWeather();
-        StatsManager.updateHealth();
         StatsManager.updateFood();
         StatsManager.updateDistance();
+        StatsManager.updateHealth();
     }
 
     void startParty()
@@ -119,6 +119,7 @@ public class TravelEvent : MonoBehaviour
         repeat = true;
     }
 
+    /*
     public void deletePlayer(int playerNum)
     {
         if(playerNum == 1)
@@ -141,5 +142,5 @@ public class TravelEvent : MonoBehaviour
         {
             five.SetActive(false);
         }
-    }
+    }*/
 }

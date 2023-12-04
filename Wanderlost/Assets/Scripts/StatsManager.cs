@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
 
 public class StatsManager : MonoBehaviour{
     public static string pace = "Steady";
@@ -84,7 +87,9 @@ public class StatsManager : MonoBehaviour{
 
                 if (healthNum[i] <=0)
                 {
-                    TravelEvent.deletePlayer(i);
+                    Debug.Log("die!");
+                    GameObject manager = GameObject.Find("TravelManager");
+                    manager.GetComponent<TravelEvent>().one.SetActive(false);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -96,21 +101,28 @@ public class StatsManager : MonoBehaviour{
             }
         }
 
-        alive = aliveTemp;
-        int averageHP = totalHP / alive;
-        Debug.Log(averageHP);
+        if (aliveTemp > 0)
+        {
+            alive = aliveTemp;
+            int averageHP = totalHP / alive;
+            Debug.Log(averageHP);
 
-        if (averageHP < 30)
-        {
-            health = "Poor";
-        }
-        else if (averageHP <= 70)
-        {
-            health = "Fair";
+            if (averageHP < 30)
+            {
+                health = "Poor";
+            }
+            else if (averageHP <= 70)
+            {
+                health = "Fair";
+            }
+            else
+            {
+                health = "Good";
+            }
         }
         else
         {
-            health = "Good";
+            gameOver();
         }
     }
 
@@ -174,6 +186,36 @@ public class StatsManager : MonoBehaviour{
 
     public static void updateFood()
     {
+        for(int i = 0; i < alive; i++)
+        {
+            if (rations == "Filling")
+            {
+                if(food - 20 >= 0)
+                {
+                    food -= 20;
+                    //add penalty
+                }
+                else if(food - 10 >= 0)
+                {
+                    food -= 10;
+                    //add penalty
+                }
+                else if(food - 5 >= 0)
+                {
+                    food -= 5;
+                    //add penalty
+                }
+            }
+            else if (rations == "Meager")
+            {
+                food -= 10 * alive;
+            }
+            else
+            {
+                food -= 5 * alive;
+            }
+        }
+
         if(rations == "Filling")
         {
             food -= 20 * alive;
@@ -201,6 +243,11 @@ public class StatsManager : MonoBehaviour{
         {
             nextWay -= 50;
         }
+    }
+
+    public static void gameOver()
+    {
+        SceneManager.LoadScene(4);
     }
 }
 
