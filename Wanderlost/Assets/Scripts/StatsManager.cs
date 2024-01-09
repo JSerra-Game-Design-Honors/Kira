@@ -89,7 +89,7 @@ public class StatsManager : MonoBehaviour{
                 {
                     Debug.Log("die!");
                     GameObject manager = GameObject.Find("TravelManager");
-                    manager.GetComponent<TravelEvent>().one.SetActive(false);
+                    manager.GetComponent<TravelEvent>().party[i].SetActive(false);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -122,7 +122,7 @@ public class StatsManager : MonoBehaviour{
         }
         else
         {
-            gameOver();
+            //gameOver();
         }
     }
 

@@ -10,7 +10,7 @@ public class TravelEvent : MonoBehaviour
 
     public GameObject one, two, three, four, five;
 
-    GameObject[] party = new GameObject[5];
+    public GameObject[] party = new GameObject[5];
     bool isTraveling;
 
     public TMP_Text promptText;
@@ -119,28 +119,9 @@ public class TravelEvent : MonoBehaviour
         repeat = true;
     }
 
-    /*
-    public void deletePlayer(int playerNum)
-    {
-        if(playerNum == 1)
-        {
-            one.SetActive(false);
-        } 
-        else if (playerNum == 2)
-        {
-            two.SetActive(false);
-        }
-        else if (playerNum == 3)
-        {
-            three.SetActive(false);
-        }
-        else if (playerNum == 4)
-        {
-            four.SetActive(false);
-        }
-        else
-        {
-            five.SetActive(false);
-        }
-    }*/
+    /*TO DO:
+     * 
+     * Pop-up updater
+     * 
+     */
 }
