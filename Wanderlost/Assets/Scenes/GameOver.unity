@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your souls are lost forever...
+  m_text: 'Your souls are lost to the Darkness...
 
 
     <color=#ff0083>GAME OVER.</color>'

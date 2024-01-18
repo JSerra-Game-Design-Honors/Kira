@@ -15,12 +15,17 @@ public class TravelEvent : MonoBehaviour
 
     public TMP_Text promptText;
     public TMP_Text statsText;
+    public TMP_Text updateText;
+
+    public GameObject updateWindow;
 
     bool repeat;
+    bool exit;
 
     // Start is called before the first frame update
     void Start()
     {
+        createUpdate("hi!");
         createParty();
         setStats();
         promptText.text = "Press <color=#00cbff>SPACE</color> to continue.";
@@ -33,6 +38,7 @@ public class TravelEvent : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             isTraveling = !isTraveling;
+            exit = true;
         
         if (isTraveling)
         {
@@ -41,6 +47,10 @@ public class TravelEvent : MonoBehaviour
             StartCoroutine(startDayCycle());
             //Debug.Log("space on");
         }
+        else if(Input.GetKeyDown("enter") || Input.GetKeyDown("return"))
+        {
+            exit = true;
+        }
         else
         {
             //promptText.text = "Press SPACE to continue.";
@@ -48,6 +58,7 @@ public class TravelEvent : MonoBehaviour
             //Debug.Log("space off");
         }
         }
+        
     }
     
     IEnumerator startDayCycle()
@@ -117,6 +128,23 @@ public class TravelEvent : MonoBehaviour
     void resetLoop()
     {
         repeat = true;
+    }
+
+    public void createUpdate(string message)
+    {
+        UnityEngine.Debug.Log("function entered!");
+        updateWindow.SetActive(true);
+        updateText.text = message;
+
+        exit = false;
+        destroyUpdate();
+    }
+
+    IEnumerator destroyUpdate()
+    {
+        yield return new WaitUntil(() => exit == true);
+        updateWindow.SetActive(false);
+        updateText.text = "";
     }
 
     /*TO DO:
