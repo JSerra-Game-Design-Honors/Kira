@@ -25,11 +25,13 @@ public class TravelEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createUpdate("hi!");
         createParty();
         setStats();
         promptText.text = "Press <color=#00cbff>SPACE</color> to continue.";
         isTraveling = false;
+
+        updateWindow.SetActive(false);
+        updateText.text = "";
     }
     // Update is called once per frame
     void Update()
@@ -38,7 +40,7 @@ public class TravelEvent : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             isTraveling = !isTraveling;
-            exit = true;
+            //exit = true;
         
         if (isTraveling)
         {
@@ -47,10 +49,6 @@ public class TravelEvent : MonoBehaviour
             StartCoroutine(startDayCycle());
             //Debug.Log("space on");
         }
-        else if(Input.GetKeyDown("enter") || Input.GetKeyDown("return"))
-        {
-            exit = true;
-        }
         else
         {
             //promptText.text = "Press SPACE to continue.";
@@ -58,7 +56,12 @@ public class TravelEvent : MonoBehaviour
             //Debug.Log("space off");
         }
         }
-        
+        else if (Input.GetKeyDown("enter") || Input.GetKeyDown("return"))
+        {
+            exit = true;
+            UnityEngine.Debug.Log("exit == "+exit);
+        }
+
     }
     
     IEnumerator startDayCycle()
@@ -132,24 +135,26 @@ public class TravelEvent : MonoBehaviour
 
     public void createUpdate(string message)
     {
-        UnityEngine.Debug.Log("function entered!");
+        UnityEngine.Debug.Log("create function entered!");
         updateWindow.SetActive(true);
         updateText.text = message;
 
         exit = false;
-        destroyUpdate();
+        StartCoroutine(destroyUpdate());
     }
 
     IEnumerator destroyUpdate()
     {
+        UnityEngine.Debug.Log("destroy function entered!");
         yield return new WaitUntil(() => exit == true);
+        UnityEngine.Debug.Log("wait time passed!");
         updateWindow.SetActive(false);
         updateText.text = "";
     }
 
     /*TO DO:
      * 
-     * Pop-up updater
+     * 
      * 
      */
 }
