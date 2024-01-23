@@ -153,7 +153,7 @@ public class TravelEvent : MonoBehaviour
     }
 
     /*TO DO:
-     * 
+     * Make travel cycle pause when an update fires
      * 
      * 
      */

@@ -87,10 +87,7 @@ public class StatsManager : MonoBehaviour{
 
                 if (healthNum[i] <=0)
                 {
-                    Debug.Log("die!");
-                    GameObject manager = GameObject.Find("TravelManager");
-                    manager.GetComponent<TravelEvent>().party[i].SetActive(false);
-                    manager.GetComponent<TravelEvent>().createUpdate("Traveler " + i + " has been lost to the Darkness.");
+                    PlayerDeath(i);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -249,6 +246,14 @@ public class StatsManager : MonoBehaviour{
     public static void gameOver()
     {
         SceneManager.LoadScene(4);
+    }
+
+    void playerDeath(int i)
+    {
+        Debug.Log("die!");
+        GameObject manager = GameObject.Find("TravelManager");
+        manager.GetComponent<TravelEvent>().party[i].SetActive(false);
+        manager.GetComponent<TravelEvent>().createUpdate("Traveler " + i + " has been lost to the Darkness.");
     }
 }
 
