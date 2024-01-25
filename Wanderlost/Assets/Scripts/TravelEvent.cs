@@ -21,6 +21,7 @@ public class TravelEvent : MonoBehaviour
 
     bool repeat;
     bool exit;
+    public static bool complete;
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +77,7 @@ public class TravelEvent : MonoBehaviour
         }
     }
 
-    void passDay()
+    IEnumerator passDay()
     {
         //while (isTraveling)
         //{
@@ -84,9 +85,11 @@ public class TravelEvent : MonoBehaviour
             Invoke("stopParty", 2);
             Invoke("updateStats", 2);
             Invoke("setStats", 2);
+
+            yield return new WaitUntil(() => complete == true);
             Invoke("resetLoop", 4);
 
-        UnityEngine.Debug.Log("day passed!");
+            UnityEngine.Debug.Log("day passed!");
         //}
     }
     void createParty()
@@ -130,6 +133,7 @@ public class TravelEvent : MonoBehaviour
 
     void resetLoop()
     {
+        complete = false;
         repeat = true;
     }
 

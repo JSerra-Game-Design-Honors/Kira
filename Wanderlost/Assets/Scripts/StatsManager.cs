@@ -87,7 +87,7 @@ public class StatsManager : MonoBehaviour{
 
                 if (healthNum[i] <=0)
                 {
-                    PlayerDeath(i);
+                    playerDeath(i);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -117,6 +117,7 @@ public class StatsManager : MonoBehaviour{
             {
                 health = "Good";
             }
+            TravelEvent.complete = true;
         }
         else
         {
@@ -248,7 +249,7 @@ public class StatsManager : MonoBehaviour{
         SceneManager.LoadScene(4);
     }
 
-    void playerDeath(int i)
+    static void playerDeath(int i)
     {
         Debug.Log("die!");
         GameObject manager = GameObject.Find("TravelManager");
