@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11218,6 +11218,7 @@ GameObject:
   - component: {fileID: 1025745556}
   - component: {fileID: 1025745558}
   - component: {fileID: 1025745557}
+  - component: {fileID: 1025745559}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -11685,6 +11686,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!65 &1025745559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025745555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1028913064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20872,12 +20886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53942fa2b8b746e2bfae7230b9740c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  anim: {fileID: 0}
+  controller: {fileID: 1844831653}
+  anim: {fileID: 95943281986989397}
   runningSound: {fileID: 0}
   playerOneControls: 0
   playerTwoControls: 0
-  animal: 0
+  animal: 1
   runningSpeed: 2
   gravity: 1
   freeRotation: 1
@@ -25095,7 +25109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311290279073385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62854743, y: 1, z: -1.3264332}
+  m_LocalPosition: {x: 0.108, y: 1.67, z: 0.197}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1823294243}
@@ -25396,8 +25410,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311290279073385}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: d623cd35a78380d4eb0457c4e483abed, type: 3}
+  m_Controller: {fileID: 9100000, guid: 84dd067921f4e0045bb3a9a6e8fb7789, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

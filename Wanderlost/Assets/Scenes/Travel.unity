@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 72620598}
   - component: {fileID: 72620597}
   - component: {fileID: 72620599}
-  - component: {fileID: 72620600}
   m_Layer: 0
   m_Name: Traveler3
   m_TagString: Untagged
@@ -237,18 +236,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c07b2bb0c44920408218d5edbefb73f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &72620600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72620595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17db05067cee411408fc77085940234e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &260812188
@@ -400,7 +387,6 @@ GameObject:
   - component: {fileID: 317185208}
   - component: {fileID: 317185207}
   - component: {fileID: 317185209}
-  - component: {fileID: 317185210}
   m_Layer: 0
   m_Name: Traveler5
   m_TagString: Untagged
@@ -502,18 +488,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c07b2bb0c44920408218d5edbefb73f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &317185210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317185205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17db05067cee411408fc77085940234e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &486988005
@@ -753,7 +727,6 @@ GameObject:
   - component: {fileID: 575008528}
   - component: {fileID: 575008527}
   - component: {fileID: 575008530}
-  - component: {fileID: 575008531}
   m_Layer: 0
   m_Name: Traveler1
   m_TagString: Untagged
@@ -857,18 +830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c07b2bb0c44920408218d5edbefb73f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &575008531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575008526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17db05067cee411408fc77085940234e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &665421558
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +842,6 @@ GameObject:
   - component: {fileID: 665421561}
   - component: {fileID: 665421560}
   - component: {fileID: 665421562}
-  - component: {fileID: 665421563}
   m_Layer: 0
   m_Name: Traveler4
   m_TagString: Untagged
@@ -983,18 +943,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c07b2bb0c44920408218d5edbefb73f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &665421563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665421558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17db05067cee411408fc77085940234e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &721461157
@@ -1229,7 +1177,6 @@ GameObject:
   - component: {fileID: 959825458}
   - component: {fileID: 959825457}
   - component: {fileID: 959825459}
-  - component: {fileID: 959825460}
   m_Layer: 0
   m_Name: Traveler2
   m_TagString: Untagged
@@ -1331,18 +1278,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c07b2bb0c44920408218d5edbefb73f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &959825460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959825455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17db05067cee411408fc77085940234e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &987218592

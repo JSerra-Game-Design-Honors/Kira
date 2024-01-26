@@ -86,7 +86,9 @@ public class TravelEvent : MonoBehaviour
             Invoke("updateStats", 2);
             Invoke("setStats", 2);
 
-            yield return new WaitUntil(() => complete == true);
+        UnityEngine.Debug.Log("in pass day!");
+
+        yield return new WaitUntil(() => complete == true);
             Invoke("resetLoop", 4);
 
             UnityEngine.Debug.Log("day passed!");
