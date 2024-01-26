@@ -77,18 +77,15 @@ public class TravelEvent : MonoBehaviour
         }
     }
 
-    IEnumerator passDay()
+    void passDay()
     {
         //while (isTraveling)
         //{
+        UnityEngine.Debug.Log("in pass day!");
             startParty();
             Invoke("stopParty", 2);
             Invoke("updateStats", 2);
             Invoke("setStats", 2);
-
-        UnityEngine.Debug.Log("in pass day!");
-
-        yield return new WaitUntil(() => complete == true);
             Invoke("resetLoop", 4);
 
             UnityEngine.Debug.Log("day passed!");
@@ -108,8 +105,12 @@ public class TravelEvent : MonoBehaviour
         statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions\nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
     }
 
-    void updateStats()
+    IEnumerator updateStats()
     {
+        UnityEngine.Debug.Log("in updateStats!");
+
+        yield return new WaitUntil(() => complete == true);
+
         StatsManager.updateDate();
         StatsManager.chooseWeather();
         StatsManager.updateFood();
