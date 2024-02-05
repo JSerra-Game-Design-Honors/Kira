@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Chicken/Scenes/MenuScreen.unity
+    guid: 65f494e12cf132045a5f20fdb27774e5
   m_configObjects: {}

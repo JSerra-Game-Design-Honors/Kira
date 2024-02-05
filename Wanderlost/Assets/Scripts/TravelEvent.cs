@@ -105,11 +105,11 @@ public class TravelEvent : MonoBehaviour
         statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions\nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
     }
 
-    IEnumerator updateStats()
+    void updateStats()
     {
         UnityEngine.Debug.Log("in updateStats!");
 
-        yield return new WaitUntil(() => complete == true);
+        //yield return new WaitUntil(() => complete == true);
 
         StatsManager.updateDate();
         StatsManager.chooseWeather();
@@ -145,15 +145,25 @@ public class TravelEvent : MonoBehaviour
         UnityEngine.Debug.Log("create function entered!");
         updateWindow.SetActive(true);
         updateText.text = message;
-
         exit = false;
-        StartCoroutine(destroyUpdate());
+
+        Time.timeScale = 0f;
+        UnityEngine.Debug.Log("code still runs!");
+        while (true)
+        {
+            if(exit == true)
+            {
+                Time.timeScale = 1f;
+                destroyUpdate();
+                break;
+            }
+        }
     }
 
-    IEnumerator destroyUpdate()
+    void destroyUpdate()
     {
         UnityEngine.Debug.Log("destroy function entered!");
-        yield return new WaitUntil(() => exit == true);
+        //yield return new WaitUntil(() => exit == true);
         UnityEngine.Debug.Log("wait time passed!");
         updateWindow.SetActive(false);
         updateText.text = "";

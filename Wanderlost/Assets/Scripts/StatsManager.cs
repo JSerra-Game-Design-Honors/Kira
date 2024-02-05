@@ -10,7 +10,7 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 100, 100, 20, 100, 100 };
+    public static int[] healthNum = { 100, 100, 10, 100, 100 };
 
     public static int day = 1;
     public static int seasonNum = 0;
