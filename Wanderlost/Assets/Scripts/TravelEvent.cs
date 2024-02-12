@@ -140,7 +140,7 @@ public class TravelEvent : MonoBehaviour
         repeat = true;
     }
 
-    public void createUpdate(string message)
+    public IEnumerator createUpdate(string message)
     {
         UnityEngine.Debug.Log("create function entered!");
         updateWindow.SetActive(true);
@@ -149,15 +149,11 @@ public class TravelEvent : MonoBehaviour
 
         Time.timeScale = 0f;
         UnityEngine.Debug.Log("code still runs!");
-        while (true)
-        {
-            if(exit == true)
-            {
-                Time.timeScale = 1f;
-                destroyUpdate();
-                break;
-            }
-        }
+
+        yield return new WaitUntil(() => exit == true);
+
+        Time.timeScale = 1f;
+        destroyUpdate();
     }
 
     void destroyUpdate()
