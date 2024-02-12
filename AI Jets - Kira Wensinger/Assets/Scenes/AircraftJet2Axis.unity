@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: a7bed68887a07e34394d4191b3081359, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24939328, g: 0.3117381, b: 0.36743352, a: 1}
+  m_IndirectSpecularColor: {r: 0.24939394, g: 0.31173867, b: 0.3674342, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -5347,6 +5347,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -5984,6 +5988,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16112,6 +16120,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -21194,6 +21206,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -21406,7 +21422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235a6615124795442b98c1f03500003e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxEnginePower: 40
+  m_MaxEnginePower: 20
   m_Lift: 0.002
   m_ZeroLiftSpeed: 300
   m_RollEffect: 0.75
@@ -21446,6 +21462,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22066,6 +22086,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -22134,6 +22158,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27374,6 +27402,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -27531,6 +27563,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -27594,6 +27630,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
   m_PrefabInstance: {fileID: 2068406267}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1187142994
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_Name
+      value: AircraftJetAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400094, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
+      propertyPath: circuit
+      value: 
+      objectReference: {fileID: 1740519257}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f7604981ce4c064cbe5284c437c5699, type: 3}
 --- !u!1 &1210831516
 GameObject:
   m_ObjectHideFlags: 0
@@ -27745,7 +27842,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27837,6 +27934,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_RootOrder
@@ -28013,7 +28114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28458,6 +28559,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -28734,6 +28839,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -28872,7 +28981,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29009,6 +29118,10 @@ PrefabInstance:
       value: Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -29083,7 +29196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1740519256
 Transform:
   m_ObjectHideFlags: 0
@@ -29301,6 +29414,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29694,7 +29811,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d23a205aa0ed1234ba0a327f1232ff7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29900,6 +30017,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_Name
       value: Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e9aa4b7def958e54bad9089e96b5a063, type: 3}
       propertyPath: m_StaticEditorFlags
