@@ -33,6 +33,9 @@ public class TravelEvent : MonoBehaviour
 
         updateWindow.SetActive(false);
         updateText.text = "";
+
+        UnityEngine.Debug.Log("about to create");
+        //StartCoroutine(createUpdate("Hi."));
     }
     // Update is called once per frame
     void Update()
@@ -140,9 +143,14 @@ public class TravelEvent : MonoBehaviour
         repeat = true;
     }
 
-    public IEnumerator createUpdate(string message)
+    public void startUpdate(string message)
+    {
+        StartCoroutine(createUpdate(message));
+    }
+    IEnumerator createUpdate(string message)
     {
         UnityEngine.Debug.Log("create function entered!");
+
         updateWindow.SetActive(true);
         updateText.text = message;
         exit = false;
