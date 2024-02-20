@@ -10,7 +10,7 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 100, 100, 10, 100, 100 };
+    public static int[] healthNum = { 100, 100, 1, 100, 100 };
 
     public static int day = 1;
     public static int seasonNum = 0;
@@ -87,7 +87,8 @@ public class StatsManager : MonoBehaviour{
 
                 if (healthNum[i] <=0)
                 {
-                    playerDeath(i);
+                    GameObject manager = GameObject.Find("TravelManager");
+                    manager.GetComponent<TravelEvent>().playerDeath(i);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -249,13 +250,14 @@ public class StatsManager : MonoBehaviour{
         SceneManager.LoadScene(4);
     }
 
+    /*
     static void playerDeath(int i)
     {
         Debug.Log("die!");
         GameObject manager = GameObject.Find("TravelManager");
         manager.GetComponent<TravelEvent>().party[i].SetActive(false);
         manager.GetComponent<TravelEvent>().startUpdate("Traveler " + i + " has been lost to the Darkness.");
-    }
+    }*/
 }
 
 /*

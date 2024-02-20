@@ -11,6 +11,7 @@ public class TravelEvent : MonoBehaviour
     public GameObject one, two, three, four, five;
 
     public GameObject[] party = new GameObject[5];
+    public bool[] activeParty = { true, true, true, true, true };
     bool isTraveling;
 
     public TMP_Text promptText;
@@ -22,6 +23,7 @@ public class TravelEvent : MonoBehaviour
     bool repeat;
     bool exit;
     public static bool complete;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +69,13 @@ public class TravelEvent : MonoBehaviour
         }
 
     }
-    
+
+    void Awake()
+    {
+        UnityEngine.Debug.Log("I'm Awake!!");
+        activateTravelers();
+    }
+
     IEnumerator startDayCycle()
     {
         while (true)
@@ -171,6 +179,30 @@ public class TravelEvent : MonoBehaviour
         UnityEngine.Debug.Log("wait time passed!");
         updateWindow.SetActive(false);
         updateText.text = "";
+    }
+
+    public void playerDeath(int i)
+    {
+        UnityEngine.Debug.Log("die!");
+        
+        party[i].SetActive(false);
+        activeParty[i] = false;
+        startUpdate("Traveler " + (i+1) + " has been lost to the Darkness.");
+    }
+
+    
+    void activateTravelers()
+    {
+        UnityEngine.Debug.Log("in activation...");
+        for (int i = 0; i < activeParty.Length; i++)
+        {
+            UnityEngine.Debug.Log("== false");
+            if (activeParty[i] == false)
+            {
+                UnityEngine.Debug.Log("deactviate!!");
+                party[i].SetActive(false);
+            }
+        }
     }
 
     /*TO DO:
