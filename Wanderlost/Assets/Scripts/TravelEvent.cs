@@ -7,11 +7,6 @@ using System.Diagnostics;
 
 public class TravelEvent : MonoBehaviour
 {
-
-    public GameObject one, two, three, four, five;
-
-    public GameObject[] party = new GameObject[5];
-    public bool[] activeParty = { true, true, true, true, true };
     bool isTraveling;
 
     public TMP_Text promptText;
@@ -28,7 +23,10 @@ public class TravelEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createParty();
+        UnityEngine.Debug.Log("I start!");
+        //UnityEngine.Debug.Log(test);
+        StatsManager.updateTravelerObjects();
+        StatsManager.activateTravelers();
         setStats();
         promptText.text = "Press <color=#00cbff>SPACE</color> to continue.";
         isTraveling = false;
@@ -36,7 +34,7 @@ public class TravelEvent : MonoBehaviour
         updateWindow.SetActive(false);
         updateText.text = "";
 
-        UnityEngine.Debug.Log("about to create");
+        //UnityEngine.Debug.Log("about to create");
         //StartCoroutine(createUpdate("Hi."));
     }
     // Update is called once per frame
@@ -45,6 +43,8 @@ public class TravelEvent : MonoBehaviour
         //Debug.Log("we are updating wohoo!");
         if (Input.GetKeyDown("space"))
         {
+            //test = "All good so far!";
+            //UnityEngine.Debug.Log(test);
             isTraveling = !isTraveling;
             //exit = true;
         
@@ -70,11 +70,12 @@ public class TravelEvent : MonoBehaviour
 
     }
 
+    /*
     void Awake()
     {
         UnityEngine.Debug.Log("I'm Awake!!");
         activateTravelers();
-    }
+    }*/
 
     IEnumerator startDayCycle()
     {
@@ -102,14 +103,6 @@ public class TravelEvent : MonoBehaviour
             UnityEngine.Debug.Log("day passed!");
         //}
     }
-    void createParty()
-    {
-        party[0] = one;
-        party[1] = two;
-        party[2] = three;
-        party[3] = four;
-        party[4] = five;
-    }
 
     void setStats()
     {
@@ -131,17 +124,17 @@ public class TravelEvent : MonoBehaviour
 
     void startParty()
     {
-        for (int i = 0; i < party.Length; i++)
+        for (int i = 0; i < StatsManager.party.Length; i++)
         {
-            party[i].GetComponent<WalkScript>().walkStart();
+            StatsManager.party[i].GetComponent<WalkScript>().walkStart();
         }
     }
 
     void stopParty()
     {
-        for (int i = 0; i < party.Length; i++)
+        for (int i = 0; i < StatsManager.party.Length; i++)
         {
-            party[i].GetComponent<WalkScript>().walkStop();
+            StatsManager.party[i].GetComponent<WalkScript>().walkStop();
         }
     }
 
@@ -181,33 +174,9 @@ public class TravelEvent : MonoBehaviour
         updateText.text = "";
     }
 
-    public void playerDeath(int i)
-    {
-        UnityEngine.Debug.Log("die!");
-        
-        party[i].SetActive(false);
-        activeParty[i] = false;
-        startUpdate("Traveler " + (i+1) + " has been lost to the Darkness.");
-    }
-
-    
-    void activateTravelers()
-    {
-        UnityEngine.Debug.Log("in activation...");
-        for (int i = 0; i < activeParty.Length; i++)
-        {
-            UnityEngine.Debug.Log("== false");
-            if (activeParty[i] == false)
-            {
-                UnityEngine.Debug.Log("deactviate!!");
-                party[i].SetActive(false);
-            }
-        }
-    }
-
     /*TO DO:
      * Make travel cycle pause when an update fires
-     * 
+     * Transfer static variables to stats manager
      * 
      */
 }

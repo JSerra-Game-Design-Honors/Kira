@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 
 public class StatsManager : MonoBehaviour{
+    public static GameObject one, two, three, four, five;
+
+    public static GameObject[] party = new GameObject[5];
+    public static bool[] activeParty = { true, true, true, true, true };
+
     public static string pace = "Steady";
     public static string rations = "Filling";
     public static string weather = "Warm";
@@ -21,6 +26,31 @@ public class StatsManager : MonoBehaviour{
 
     public static string[] seasonsSet = { "Summer", "Autumn", "Winter", "Spring" };
     public static string[,] weatherSet = { { "Warm", "Hot", "Very Hot", "Heat Wave" }, {"Cool", "Cold", "Rainy", "Stormy"}, {"Cold", "Very Cold", "Snowy", "Blizzard"}, {"Cool", "Warm", "Rainy", "Stormy"} };
+
+    static GameObject travelManager = GameObject.Find("TravelManager");
+
+    /*
+    public static void createParty()
+    {
+        UnityEngine.Debug.Log("lets make a party!");
+        party[0] = one;
+        party[1] = two;
+        party[2] = three;
+        party[3] = four;
+        party[4] = five;
+    }*/
+
+    public static void updateTravelerObjects(){
+        one = GameObject.Find("Traveler1");
+        two = GameObject.Find("Traveler2");
+        three = GameObject.Find("Traveler3");
+        four = GameObject.Find("Traveler4");
+        five = GameObject.Find("Traveler5");
+
+        Debug.Log("ID of one: "+one);
+
+        party = { one, two, three, four, five };
+    }
 
     public static void changePace(string newPace)
     {
@@ -87,8 +117,7 @@ public class StatsManager : MonoBehaviour{
 
                 if (healthNum[i] <=0)
                 {
-                    GameObject manager = GameObject.Find("TravelManager");
-                    manager.GetComponent<TravelEvent>().playerDeath(i);
+                    playerDeath(i);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -242,6 +271,30 @@ public class StatsManager : MonoBehaviour{
         else
         {
             nextWay -= 50;
+        }
+    }
+
+    public static void playerDeath(int i)
+    {
+        UnityEngine.Debug.Log("die!");
+
+        party[i].SetActive(false);
+        activeParty[i] = false;
+        travelManager.GetComponent<TravelEvent>().startUpdate("Traveler " + (i + 1) + " has been lost to the Darkness.");
+    }
+
+
+    public static void activateTravelers()
+    {
+        UnityEngine.Debug.Log("in activation...");
+        for (int i = 0; i < activeParty.Length; i++)
+        {
+            UnityEngine.Debug.Log(party[i] + ":" + activeParty[i] + "== false");
+            if (activeParty[i] == false)
+            {
+                UnityEngine.Debug.Log("deactviate!!");
+                party[i].SetActive(false);
+            }
         }
     }
 

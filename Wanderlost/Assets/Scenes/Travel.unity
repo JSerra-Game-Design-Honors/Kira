@@ -1498,13 +1498,6 @@ MonoBehaviour:
   three: {fileID: 72620595}
   four: {fileID: 665421558}
   five: {fileID: 317185205}
-  party:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  activeParty: 0101010101
   promptText: {fileID: 260812189}
   statsText: {fileID: 486988007}
   updateText: {fileID: 948465422}
