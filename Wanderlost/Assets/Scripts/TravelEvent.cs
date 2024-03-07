@@ -19,6 +19,9 @@ public class TravelEvent : MonoBehaviour
     bool exit;
     public static bool complete;
 
+    string[] negEvents = { "NgE1", "NgE2", "NgE3", "NgE4", "NgE5" };
+    string[] neuEvents = { "NuE1", "NuE2", "NuE3", "NuE4", "NuE5" };
+    string[] posEvents = { "PE1", "PE2", "PE3", "PE4", "PE5" };
 
     // Start is called before the first frame update
     void Start()
@@ -70,18 +73,11 @@ public class TravelEvent : MonoBehaviour
 
     }
 
-    /*
-    void Awake()
-    {
-        UnityEngine.Debug.Log("I'm Awake!!");
-        activateTravelers();
-    }*/
-
     IEnumerator startDayCycle()
     {
         while (true)
         {
-            UnityEngine.Debug.Log("repeat!");
+            UnityEngine.Debug.Log("------------PASS DAY-------------");
             repeat = false;
 
             passDay();
@@ -95,6 +91,7 @@ public class TravelEvent : MonoBehaviour
         //{
         UnityEngine.Debug.Log("in pass day!");
             startParty();
+            //Invoke("startEncounter", 1);
             Invoke("stopParty", 2);
             Invoke("updateStats", 2);
             Invoke("setStats", 2);
@@ -117,7 +114,7 @@ public class TravelEvent : MonoBehaviour
 
         StatsManager.updateDate();
         StatsManager.chooseWeather();
-        StatsManager.updateFood();
+        //StatsManager.updateFood();
         StatsManager.updateDistance();
         StatsManager.updateHealth();
     }
@@ -174,9 +171,82 @@ public class TravelEvent : MonoBehaviour
         updateText.text = "";
     }
 
+    void startEncounter()
+    {
+        UnityEngine.Debug.Log("in encounter");
+        int percent = Random.Range(1, 100);
+        int eNum = Random.Range(1, 5);
+
+        UnityEngine.Debug.Log(percent+"%, #"+eNum);
+
+        if (StatsManager.averageHP < 30) //POOR
+        {
+            UnityEngine.Debug.Log("in poor");
+            if (percent <= 60)
+            {
+                //NEGATIVE
+                executeEncounter(negEvents, eNum);
+            }else if(percent <= 85)
+            {
+                //NEUTRAL
+                executeEncounter(neuEvents, eNum);
+            }
+            else
+            {
+                //POSITIVE
+                executeEncounter(posEvents, eNum);
+            }
+        }
+        else if (StatsManager.averageHP <= 70) //FAIR
+        {
+            UnityEngine.Debug.Log("in fair");
+            if (percent <= 25)
+            {
+                //NEGATIVE
+                executeEncounter(negEvents, eNum);
+            }
+            else if (percent <= 75)
+            {
+                //NEUTRAL
+                executeEncounter(neuEvents, eNum);
+            }
+            else
+            {
+                //POSITIVE
+                executeEncounter(posEvents, eNum);
+            }
+        }
+        else //GOOD
+        {
+            UnityEngine.Debug.Log("in good");
+            if (percent <= 15)
+            {
+                //NEGATIVE
+                executeEncounter(negEvents, eNum);
+            }
+            else if (percent <= 40)
+            {
+                //NEUTRAL
+                executeEncounter(neuEvents, eNum);
+            }
+            else
+            {
+                //POSITIVE
+                executeEncounter(posEvents, eNum);
+            }
+        }
+    }
+
+    void executeEncounter(string[] list, int num)
+    {
+        UnityEngine.Debug.Log("in execute");
+        StartCoroutine(createUpdate(list[num]));
+    }
+
+
     /*TO DO:
-     * Make travel cycle pause when an update fires
-     * Transfer static variables to stats manager
+     * Fix make penalty specific to indiviual
+     * Fix problem w/ exiting an event
      * 
      */
 }

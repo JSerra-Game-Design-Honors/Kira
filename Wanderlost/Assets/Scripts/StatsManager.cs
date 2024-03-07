@@ -15,7 +15,8 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 100, 100, 1, 100, 100 };
+    public static int[] healthNum = { 100, 100, 100, 100, 100 };
+    public static int averageHP= 100;
 
     public static int day = 1;
     public static int seasonNum = 0;
@@ -29,16 +30,6 @@ public class StatsManager : MonoBehaviour{
 
     static GameObject travelManager = GameObject.Find("TravelManager");
 
-    /*
-    public static void createParty()
-    {
-        UnityEngine.Debug.Log("lets make a party!");
-        party[0] = one;
-        party[1] = two;
-        party[2] = three;
-        party[3] = four;
-        party[4] = five;
-    }*/
 
     public static void updateTravelerObjects(){
         one = GameObject.Find("Traveler1");
@@ -47,9 +38,13 @@ public class StatsManager : MonoBehaviour{
         four = GameObject.Find("Traveler4");
         five = GameObject.Find("Traveler5");
 
-        Debug.Log("ID of one: "+one);
+        //Debug.Log("ID of one: "+one);
 
-        party = { one, two, three, four, five };
+        party[0] = one;
+        party[1] = two;
+        party[2] = three;
+        party[3] = four;
+        party[4] = five;
     }
 
     public static void changePace(string newPace)
@@ -107,12 +102,13 @@ public class StatsManager : MonoBehaviour{
     {
         int totalHP = 0;
         int aliveTemp = 0;
+
         for (int i = 0; i < healthNum.Length; i++)
         {
-            if(!(healthNum[i] <= 0))
+            if(activeParty[i])
             {
-                healthNum[i] += calculatePenalty();
-
+                healthNum[i] += calculateGenPenalty();
+                
                 Debug.Log(healthNum[i]);
 
                 if (healthNum[i] <=0)
@@ -132,7 +128,7 @@ public class StatsManager : MonoBehaviour{
         if (aliveTemp > 0)
         {
             alive = aliveTemp;
-            int averageHP = totalHP / alive;
+            averageHP = totalHP / alive;
             Debug.Log(averageHP);
 
             if (averageHP < 30)
@@ -151,27 +147,13 @@ public class StatsManager : MonoBehaviour{
         }
         else
         {
-            //gameOver();
+           gameOver();
         }
     }
 
-    public static int calculatePenalty()
+    public static int calculateGenPenalty()
     {
         int temp = 0;
-
-        //RATIONS FACTOR
-        if (rations == "Filling")
-        {
-            temp += +2;
-        }
-        else if (rations == "Meager")
-        {
-            temp += -4;
-        }
-        else
-        {
-            temp += -6;
-        }
 
         //PACE FACTOR
         if (pace == "Steady")
@@ -209,53 +191,86 @@ public class StatsManager : MonoBehaviour{
             temp += -4;
         }
 
+        //RATIONS FACTOR - applied after general penalty is returned (see update health)
+        temp += calculateFoodPenalty();
+
         Debug.Log("penalty: " + temp);
         return temp;
     }
 
-    public static void updateFood()
+    public static int calculateFoodPenalty()
     {
-        for(int i = 0; i < alive; i++)
+        for(int i = 0; i < activeParty.Length; i++)
         {
-            if (rations == "Filling")
+            //Debug.Log("TRAVELER " + (i+1));
+            if (activeParty[i])
             {
-                if(food - 20 >= 0)
+                if (rations == "Filling")
                 {
-                    food -= 20;
-                    //add penalty
+                    if (food - 20 >= 0)
+                    {
+                        //FILL
+                        food -= 20;
+                        return 2;
+                    }
+                    else if (food - 10 >= 0)
+                    {
+                        //MEAGER
+                        food -= 10;
+                        return -4;
+                    }
+                    else if (food - 5 >= 0)
+                    {
+                        //BARE
+                        food -= 5;
+                        return -6;
+                    }
+                    else
+                    {
+                        //NO FOOD
+                        Debug.Log("not enough food!");
+                        return -10;
+                    }
                 }
-                else if(food - 10 >= 0)
+                else if (rations == "Meager")
                 {
-                    food -= 10;
-                    //add penalty
+                    if (food - 10 >= 0)
+                    {
+                        //MEAGER
+                        food -= 10;
+                        return -4;
+                    }
+                    else if (food - 5 >= 0)
+                    {
+                        //BARE
+                        food -= 5;
+                        return -6;
+                    }
+                    else
+                    {
+                        //NO FOOD
+                        Debug.Log("not enough food!");
+                        return -10;
+                    }
                 }
-                else if(food - 5 >= 0)
+                else
                 {
-                    food -= 5;
-                    //add penalty
+                    if (food - 5 >= 0)
+                    {
+                        //BARE
+                        food -= 5;
+                        return -6;
+                    }
+                    else
+                    {
+                        //NO FOOD
+                        Debug.Log("not enough food!");
+                        return -10;
+                    }
                 }
             }
-            else if (rations == "Meager")
-            {
-                food -= 10 * alive;
-            }
-            else
-            {
-                food -= 5 * alive;
-            }
         }
-
-        if(rations == "Filling")
-        {
-            food -= 20 * alive;
-        } else if(rations == "Meager")
-        {
-            food -= 10 * alive;
-        }
-        else
-        {
-            food -= 5 * alive;
-        }
+        return 0;
     }
 
     public static void updateDistance()
@@ -276,23 +291,23 @@ public class StatsManager : MonoBehaviour{
 
     public static void playerDeath(int i)
     {
-        UnityEngine.Debug.Log("die!");
+        Debug.Log("die!");
 
-        party[i].SetActive(false);
         activeParty[i] = false;
         travelManager.GetComponent<TravelEvent>().startUpdate("Traveler " + (i + 1) + " has been lost to the Darkness.");
+        party[i].SetActive(false);
     }
 
 
     public static void activateTravelers()
     {
-        UnityEngine.Debug.Log("in activation...");
+        //UnityEngine.Debug.Log("in activation...");
         for (int i = 0; i < activeParty.Length; i++)
         {
-            UnityEngine.Debug.Log(party[i] + ":" + activeParty[i] + "== false");
+            //UnityEngine.Debug.Log(party[i] + ":" + activeParty[i] + "== false");
             if (activeParty[i] == false)
             {
-                UnityEngine.Debug.Log("deactviate!!");
+                //UnityEngine.Debug.Log("deactviate!!");
                 party[i].SetActive(false);
             }
         }
@@ -302,15 +317,6 @@ public class StatsManager : MonoBehaviour{
     {
         SceneManager.LoadScene(4);
     }
-
-    /*
-    static void playerDeath(int i)
-    {
-        Debug.Log("die!");
-        GameObject manager = GameObject.Find("TravelManager");
-        manager.GetComponent<TravelEvent>().party[i].SetActive(false);
-        manager.GetComponent<TravelEvent>().startUpdate("Traveler " + i + " has been lost to the Darkness.");
-    }*/
 }
 
 /*
