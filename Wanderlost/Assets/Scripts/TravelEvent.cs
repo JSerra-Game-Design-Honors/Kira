@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Diagnostics;
+using System;
 
 public class TravelEvent : MonoBehaviour
 {
@@ -16,22 +17,18 @@ public class TravelEvent : MonoBehaviour
     public GameObject updateWindow;
 
     bool repeat;
-    bool exit;
-    static bool eActive;
-    static bool startOnActive = false;
+    public bool exit; //exit event
+    bool exitScene;
     public static bool complete;
 
     string[] negEvents = { "NgE1", "NgE2", "NgE3", "NgE4", "NgE5" };
     string[] neuEvents = { "NuE1", "NuE2", "NuE3", "NuE4", "NuE5" };
     string[] posEvents = { "PE1", "PE2", "PE3", "PE4", "PE5" };
-    static string[] currEList;
-    static int currENum;
 
     // Start is called before the first frame update
     void Start()
     {
         UnityEngine.Debug.Log("I start!");
-        print(eActive);
 
         StatsManager.updateTravelerObjects();
         StatsManager.activateTravelers();
@@ -42,34 +39,23 @@ public class TravelEvent : MonoBehaviour
 
         updateWindow.SetActive(false);
         updateText.text = "";
-
-        //isDayActive();
     }
+
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("we are updating wohoo!");
-        if (Input.GetKeyDown("space") || startOnActive)
+        if (Input.GetKeyDown("space") && exitScene)
         {
-            startOnActive = false;
+            print(Input.GetKeyDown("space") && exitScene);
+
             isTraveling = !isTraveling;
 
             if (isTraveling)
             {
-                promptText.text = "Press <color=#00cbff>SPACE</color> to stop.";
-
                 StartCoroutine(startDayCycle());
             }
             else
             {
-                UnityEngine.Debug.Log("eActive = " + eActive);
-                if (eActive)
-                {
-                    startOnActive = true;
-                    print("destroying event before leaving...");
-                    destroyUpdate();
-                }
-
                 SceneManager.LoadScene(0);
             }
         }
@@ -96,18 +82,12 @@ public class TravelEvent : MonoBehaviour
 
     void startDay()
     {
+        exitScene = false;
+        promptText.text = "";
+
         print("in pass day!");
 
-        if (eActive) //If event was active
-        {
-            startEncounter(); //automatically enter encounter
-        }
-        else
-        {
-            Invoke("startEncounter", 1); //if else, wait
-        }
-
-        
+        Invoke("startEncounter", 1);
         Invoke("stopParty", 2);
         Invoke("updateStats", 2);
         Invoke("setStats", 2);
@@ -116,23 +96,35 @@ public class TravelEvent : MonoBehaviour
         UnityEngine.Debug.Log("day passed!");
     }
 
+    public void updateStats()
+    {
+        UnityEngine.Debug.Log("in updateStats!");
+
+        StatsManager.updateDate();
+        StatsManager.chooseWeather();
+        StatsManager.updateDistance();
+        startUpdateHealth();
+    }
+
     void setStats()
     {
         statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions\nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
+        
+        //give player the chance to exit
+        promptText.text = "Press <color=#00cbff>SPACE</color> to stop.";
+        exitScene = true;
     }
 
+    /*
     void updateStats()
     {
         UnityEngine.Debug.Log("in updateStats!");
 
-        //yield return new WaitUntil(() => complete == true);
-
         StatsManager.updateDate();
         StatsManager.chooseWeather();
-        //StatsManager.updateFood();
         StatsManager.updateDistance();
         StatsManager.updateHealth();
-    }
+    }*/
 
     void startParty()
     {
@@ -152,7 +144,6 @@ public class TravelEvent : MonoBehaviour
 
     void resetLoop()
     {
-        eActive = false;
         complete = false;
         repeat = true;
     }
@@ -161,13 +152,13 @@ public class TravelEvent : MonoBehaviour
     {
         StartCoroutine(createUpdate(message));
     }
+
     IEnumerator createUpdate(string message)
     {
         UnityEngine.Debug.Log("create function entered!");
 
         updateWindow.SetActive(true);
         updateText.text = message;
-        eActive = true;
         exit = false;
 
         Time.timeScale = 0f;
@@ -175,7 +166,6 @@ public class TravelEvent : MonoBehaviour
 
         yield return new WaitUntil(() => exit == true);
 
-        eActive = false;
         destroyUpdate();
     }
 
@@ -193,15 +183,12 @@ public class TravelEvent : MonoBehaviour
     {
         UnityEngine.Debug.Log("in encounter");
 
-        if (eActive) //if event is previously active
+        int encounterChance = UnityEngine.Random.Range(1, 100);
+
+        if (encounterChance <= 25)
         {
-            //execute saved event
-            executeEncounter(currEList, currENum);
-        }
-        else //if else, create a new random one
-        {
-            int percent = Random.Range(1, 100);
-            int eNum = Random.Range(1, 5);
+            int percent = UnityEngine.Random.Range(1, 100);
+            int eNum = UnityEngine.Random.Range(1, 5);
 
             UnityEngine.Debug.Log(percent + "%, #" + eNum);
 
@@ -262,44 +249,83 @@ public class TravelEvent : MonoBehaviour
                     executeEncounter(posEvents, eNum);
                 }
             }
-
         }
     }
 
     void executeEncounter(string[] list, int num)
     {
         UnityEngine.Debug.Log("in execute");
-        currEList = list;
-        currENum = num;
         StartCoroutine(createUpdate(list[num]));
     }
 
-    
-    void isDayActive()
+    public void startUpdateHealth()
     {
-        UnityEngine.Debug.Log("checking encounter: eActive = " + eActive);
-        if(eActive)
+        StartCoroutine(updateHealth());
+    }
+
+    public IEnumerator updateHealth()
+    {
+        int totalHP = 0;
+        int aliveTemp = 0;
+
+        for (int i = 0; i < StatsManager.healthNum.Length; i++)
         {
-            //executeEncounter(currEList, currENum);
-            isTraveling = true;
+            if (StatsManager.activeParty[i])
+            {
+                StatsManager.healthNum[i] += StatsManager.calculateGenPenalty();
+
+                print(StatsManager.healthNum[i]);
+
+                if (StatsManager.healthNum[i] <= 0)
+                {
+                    StatsManager.playerDeath(i);
+                    yield return new WaitUntil(() => exit == true);
+                }
+                else
+                {
+                    if (StatsManager.healthNum[i] > 100)
+                    {
+                        StatsManager.healthNum[i] = 100;
+                    }
+                    totalHP += StatsManager.healthNum[i];
+                    aliveTemp++;
+                }
+            }
+        }
+
+        if (aliveTemp > 0)
+        {
+            StatsManager.alive = aliveTemp;
+            StatsManager.averageHP = totalHP / StatsManager.alive;
+            print(StatsManager.averageHP);
+
+            if (StatsManager.averageHP < 30)
+            {
+                StatsManager.health = "Poor";
+            }
+            else if (StatsManager.averageHP <= 70)
+            {
+                StatsManager.health = "Fair";
+            }
+            else
+            {
+                StatsManager.health = "Good";
+            }
+            complete = true;
+        }
+        else
+        {
+            StatsManager.gameOver();
         }
     }
+
 
     void print(string text)
     {
         UnityEngine.Debug.Log(text);
     }
     /*TO DO:
-     * Fix problem w/ exiting an event - You need to check if enocuanter is runnig in start encounter and then load the old encounter good luuck!
-     * Second check up on encounater breaks it
-     * Add randomness to events
-     * Fix multiple update stack up
      * 
-     * The plan:
-     * Ok so at start we will check if the day was active when we left it (aka there is an update running)
-     * If so, we will start a new day BUUUT skip wait for walking (we still need to activate walking) and create an event
-     * That was equal to the last event (oof)
-     * If this event is exited from, we save the event, set eActive to true (singaling the event is still running), and destroy the 
-     * current event to prevent bugs. If all goes according plan we shoullld be fine but idk... OK GO!!
+     * 
      */
 }

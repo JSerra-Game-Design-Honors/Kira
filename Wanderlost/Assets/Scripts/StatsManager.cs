@@ -15,7 +15,7 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 100, 100, 100, 100, 100 };
+    public static int[] healthNum = { 10, 10, 10, 10, 100 };
     public static int averageHP= 100;
 
     public static int day = 1;
@@ -38,7 +38,7 @@ public class StatsManager : MonoBehaviour{
         four = GameObject.Find("Traveler4");
         five = GameObject.Find("Traveler5");
 
-        //Debug.Log("ID of one: "+one);
+        Debug.Log("ID of one: "+one);
 
         party[0] = one;
         party[1] = two;
@@ -98,7 +98,8 @@ public class StatsManager : MonoBehaviour{
         }
     }
     //rations 30, pace 30, weather 20, other 20
-    public static void updateHealth()
+    /*
+    public IEnumerator updateHealth()
     {
         int totalHP = 0;
         int aliveTemp = 0;
@@ -114,6 +115,7 @@ public class StatsManager : MonoBehaviour{
                 if (healthNum[i] <=0)
                 {
                     playerDeath(i);
+                    yield return new WaitUntil(() => travelManager.GetComponent<TravelEvent>().exit == true);
                 } else {
                     if(healthNum[i] > 100)
                     {
@@ -149,7 +151,7 @@ public class StatsManager : MonoBehaviour{
         {
            gameOver();
         }
-    }
+    }*/
 
     public static int calculateGenPenalty()
     {
