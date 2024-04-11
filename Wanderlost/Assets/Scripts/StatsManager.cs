@@ -15,7 +15,7 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 10, 10, 10, 10, 100 };
+    public static int[] healthNum = { 100, 100, 100, 100, 100 };
     public static int averageHP= 100;
 
     public static int day = 1;
@@ -97,61 +97,6 @@ public class StatsManager : MonoBehaviour{
             weatherNum = 3;
         }
     }
-    //rations 30, pace 30, weather 20, other 20
-    /*
-    public IEnumerator updateHealth()
-    {
-        int totalHP = 0;
-        int aliveTemp = 0;
-
-        for (int i = 0; i < healthNum.Length; i++)
-        {
-            if(activeParty[i])
-            {
-                healthNum[i] += calculateGenPenalty();
-                
-                Debug.Log(healthNum[i]);
-
-                if (healthNum[i] <=0)
-                {
-                    playerDeath(i);
-                    yield return new WaitUntil(() => travelManager.GetComponent<TravelEvent>().exit == true);
-                } else {
-                    if(healthNum[i] > 100)
-                    {
-                        healthNum[i] = 100;
-                    }
-                    totalHP += healthNum[i];
-                    aliveTemp++;
-                }
-            }
-        }
-
-        if (aliveTemp > 0)
-        {
-            alive = aliveTemp;
-            averageHP = totalHP / alive;
-            Debug.Log(averageHP);
-
-            if (averageHP < 30)
-            {
-                health = "Poor";
-            }
-            else if (averageHP <= 70)
-            {
-                health = "Fair";
-            }
-            else
-            {
-                health = "Good";
-            }
-            TravelEvent.complete = true;
-        }
-        else
-        {
-           gameOver();
-        }
-    }*/
 
     public static int calculateGenPenalty()
     {
@@ -320,83 +265,3 @@ public class StatsManager : MonoBehaviour{
         SceneManager.LoadScene(4);
     }
 }
-
-/*
- * Health lost = pace penalty + rations penalty + weather penalty (+ random event) penalty
- * 
- * PACE
- * Steady: -2 (50 lower cap)
- * Strenuous: -4
- * Grueling: -6
- * 
- * RATIONS
- * Filling:
- * Meager:
- * Bare Bones:
- * 
- * int temp = 0;
-
-        //RATIONS FACTOR
-        if (rations == "Filling")
-        {
-            temp += Random.Range(25, 31);
-        }
-        else if (rations == "Meager")
-        {
-            temp += Random.Range(10, 21);
-        }
-        else
-        {
-            temp += Random.Range(0, 11);
-        }
-
-        //PACE FACTOR
-        if (pace == "Steady")
-        {
-            temp += Random.Range(25, 31);
-        }
-        else if (pace == "Strenuous")
-        {
-            temp += Random.Range(10, 21);
-        }
-        else
-        {
-            temp += Random.Range(0, 11);
-        }
-
-        //WEATHER FACTOR
-        if (weatherNum == 0)
-        {
-            temp += Random.Range(15, 21);
-        }
-        else if (weatherNum == 1)
-        {
-            temp += Random.Range(10, 16);
-        }
-        else if (weatherNum == 2)
-        {
-            temp += Random.Range(5, 11);
-        }
-        else
-        {
-            temp += Random.Range(0, 6);
-        }
-
-        //OTHER FACTOR
-        temp += Random.Range(0, 21);
-        Debug.Log(temp);
-
-        //DETERMINE HEALTH
-        if(temp < 50)
-        {
-            health = "Poor";
-        }else if(temp == 50)
-        {
-            health = "Fair";
-        }
-        else
-        {
-            health = "Good";
-        }
-        healthNum = temp;
- */
