@@ -102,13 +102,13 @@ public class TravelEvent : MonoBehaviour
 
         StatsManager.updateDate();
         StatsManager.chooseWeather();
-        StatsManager.updateDistance();
+        MapManager.updateDistance();
         startUpdateHealth();
     }
 
     void setStats()
     {
-        statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions\nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
+        statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "\n" + MapManager.currDist + "</color> miles to <color=#ff0083>" + MapManager.map[MapManager.currLoc].name + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions";//nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
         
         //give player the chance to exit
         promptText.text = "Press <color=#00cbff>SPACE</color> to stop.";

@@ -22,7 +22,7 @@ public class StatsManager : MonoBehaviour{
     public static int seasonNum = 0;
     public static int weatherNum = 0;
     public static int food = 500;
-    public static int nextWay = 100;
+    //public static int nextWay = 100;
     public static int alive = 5;
 
     public static string[] seasonsSet = { "Summer", "Autumn", "Winter", "Spring" };
@@ -218,22 +218,6 @@ public class StatsManager : MonoBehaviour{
             }
         }
         return 0;
-    }
-
-    public static void updateDistance()
-    {
-        if (pace == "Steady")
-        {
-            nextWay -= 10;
-        }
-        else if (pace == "Strenuous")
-        {
-            nextWay -= 30;
-        }
-        else
-        {
-            nextWay -= 50;
-        }
     }
 
     public static void playerDeath(int i)
