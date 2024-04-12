@@ -319,13 +319,21 @@ public class TravelEvent : MonoBehaviour
         }
     }
 
+    public void arrivedAtWF()
+    {
+        print("IN ARRIVED");
+        startUpdate("You have arrived at <color=#ff0083>" + MapManager.map[MapManager.currLoc].name+"</color>.");
+        /*yield return new WaitUntil(() => exit == true);
+        MapManager.currLoc++;
+        SceneManager.LoadScene(0);*/
+    }
 
     void print(string text)
     {
         UnityEngine.Debug.Log(text);
     }
     /*TO DO:
-     * 
+     * Finish arriving at locations - bug with adding ienumerator :(
      * 
      */
 }

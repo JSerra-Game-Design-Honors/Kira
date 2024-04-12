@@ -85,6 +85,12 @@ public class MapManager : MonoBehaviour
         {
             currDist -= 50;
         }
+
+        if(currDist <= 0)
+        {
+            currDist = 0;
+            GameObject.Find("TravelManager").GetComponent<TravelEvent>().arrivedAtWF();
+        }
     }
 
     /*
