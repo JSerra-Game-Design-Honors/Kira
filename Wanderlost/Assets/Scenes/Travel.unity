@@ -549,14 +549,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Day X of XXXXX
 
+    XXX miles to XXXXX
+
     Weather: XXXXX
 
-    Health: XXXXX
+    Health:
+    XXXXX
 
-    Food: XXXXX
-    portions
-
-    Next Wayfinder: XXXXX leagues'
+    Food: XXXXX portions'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
   m_sharedMaterial: {fileID: 8097253542782960286, guid: 33c1864714de40a4b8e84c2ff4f68f74, type: 2}
@@ -1493,15 +1493,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d8417c2536bfe4fbb773237bf1853e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  one: {fileID: 575008526}
-  two: {fileID: 959825455}
-  three: {fileID: 72620595}
-  four: {fileID: 665421558}
-  five: {fileID: 317185205}
   promptText: {fileID: 260812189}
   statsText: {fileID: 486988007}
   updateText: {fileID: 948465422}
   updateWindow: {fileID: 574185991}
+  exit: 0
 --- !u!4 &1308791746
 Transform:
   m_ObjectHideFlags: 0
