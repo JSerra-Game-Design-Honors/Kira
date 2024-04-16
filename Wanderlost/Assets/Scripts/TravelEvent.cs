@@ -30,6 +30,7 @@ public class TravelEvent : MonoBehaviour
     void Start()
     {
         UnityEngine.Debug.Log("I start!");
+        print(MapManager.currLoc);
 
         StatsManager.updateTravelerObjects();
         StatsManager.activateTravelers();
@@ -45,7 +46,7 @@ public class TravelEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && exitScene)
+        if (Input.GetKeyDown("space") && exitScene && !arrived)
         {
             print(Input.GetKeyDown("space") && exitScene);
 
@@ -110,9 +111,12 @@ public class TravelEvent : MonoBehaviour
     void setStats()
     {
         statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "\n" + MapManager.currDist + "</color> miles to <color=#ff0083>" + MapManager.map[MapManager.currLoc].name + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions";//nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
-        
+
         //give player the chance to exit
-        promptText.text = "Press <color=#00cbff>SPACE</color> to stop.";
+        if (!arrived)
+        {
+            promptText.text = "Press <color=#00cbff>SPACE</color> to stop.";
+        }
         exitScene = true;
     }
 
@@ -171,7 +175,8 @@ public class TravelEvent : MonoBehaviour
 
         if (arrived)
         {
-            MapManager.currLoc++;
+            MapManager.updateLocation();
+            print(MapManager.currLoc);
             arrived = false;
             SceneManager.LoadScene(0);
         }
