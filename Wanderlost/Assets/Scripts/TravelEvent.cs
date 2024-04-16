@@ -20,6 +20,7 @@ public class TravelEvent : MonoBehaviour
     public bool exit; //exit event
     bool exitScene;
     public static bool complete;
+    bool arrived = false;
 
     string[] negEvents = { "NgE1", "NgE2", "NgE3", "NgE4", "NgE5" };
     string[] neuEvents = { "NuE1", "NuE2", "NuE3", "NuE4", "NuE5" };
@@ -167,6 +168,13 @@ public class TravelEvent : MonoBehaviour
         yield return new WaitUntil(() => exit == true);
 
         destroyUpdate();
+
+        if (arrived)
+        {
+            MapManager.currLoc++;
+            arrived = false;
+            SceneManager.LoadScene(0);
+        }
     }
 
     void destroyUpdate()
@@ -323,9 +331,7 @@ public class TravelEvent : MonoBehaviour
     {
         print("IN ARRIVED");
         startUpdate("You have arrived at <color=#ff0083>" + MapManager.map[MapManager.currLoc].name+"</color>.");
-        /*yield return new WaitUntil(() => exit == true);
-        MapManager.currLoc++;
-        SceneManager.LoadScene(0);*/
+        arrived = true;
     }
 
     void print(string text)

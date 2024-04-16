@@ -23,7 +23,7 @@ public class MapManager : MonoBehaviour
      */
 
     public static Wayfinder WF1 = new Wayfinder("The Tavern", 105, "The Tavern's Shop", "Foxspark");
-    public static Wayfinder WF2 = new Wayfinder("1", 1, "1", "1");
+    public static Wayfinder WF2 = new Wayfinder("The Outpost", 107, "The Outpost", "Greywren");
     public static Wayfinder WF3 = new Wayfinder("1", 1, "1", "1");
     public static Wayfinder WF4 = new Wayfinder("1", 1, "1", "1");
     public static Wayfinder WF5 = new Wayfinder("1", 1, "1", "1");
