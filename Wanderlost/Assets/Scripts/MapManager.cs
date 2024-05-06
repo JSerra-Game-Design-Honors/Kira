@@ -84,7 +84,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            currDist -= 50;
+            currDist -= 100;//****
         }
 
         if(currDist <= 0)
@@ -97,14 +97,7 @@ public class MapManager : MonoBehaviour
     public static void updateLocation()
     {
         currLoc++;
-        if(currLoc+1 > map.Length)
-        {
-            SceneManager.LoadScene(5);
-        }
-        else
-        {
-            currDist = map[currLoc].distance;
-        }
+        currDist = map[currLoc].distance;
     }
     /*
     Wayfinder createWF(string wName, int dist, string sName, string sKeeper)

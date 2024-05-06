@@ -58,7 +58,16 @@ public class TravelEvent : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(0);
+                print(MapManager.currLoc + "+1 == " + MapManager.map.Length);//***CONTINUE HERE
+                if (MapManager.currLoc + 1 == MapManager.map.Length)
+                {
+                    print("hello");
+                    SceneManager.LoadScene(5);
+                }
+                else
+                {
+                    SceneManager.LoadScene(0);
+                }
             }
         }
         else if (Input.GetKeyDown("enter") || Input.GetKeyDown("return"))
@@ -160,6 +169,7 @@ public class TravelEvent : MonoBehaviour
 
     IEnumerator createUpdate(string message)
     {
+        print("hi");
         UnityEngine.Debug.Log("create function entered!");
 
         updateWindow.SetActive(true);
@@ -344,7 +354,7 @@ public class TravelEvent : MonoBehaviour
         UnityEngine.Debug.Log(text);
     }
     /*TO DO:
-     * Finish arriving at locations - bug with adding ienumerator :(
+     * Fix arriving at end
      * 
      */
 }

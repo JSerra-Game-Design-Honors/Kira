@@ -21,7 +21,7 @@ public class StatsManager : MonoBehaviour{
     public static int day = 1;
     public static int seasonNum = 0;
     public static int weatherNum = 0;
-    public static int food = 500;
+    public static int food = 5000;//****
     //public static int nextWay = 100;
     public static int alive = 5;
 
