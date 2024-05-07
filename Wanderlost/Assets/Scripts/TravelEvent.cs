@@ -58,16 +58,7 @@ public class TravelEvent : MonoBehaviour
             }
             else
             {
-                print(MapManager.currLoc + "+1 == " + MapManager.map.Length);//***CONTINUE HERE
-                if (MapManager.currLoc + 1 == MapManager.map.Length)
-                {
-                    print("hello");
-                    SceneManager.LoadScene(5);
-                }
-                else
-                {
                     SceneManager.LoadScene(0);
-                }
             }
         }
         else if (Input.GetKeyDown("enter") || Input.GetKeyDown("return"))
@@ -188,7 +179,17 @@ public class TravelEvent : MonoBehaviour
             MapManager.updateLocation();
             print(MapManager.currLoc);
             arrived = false;
-            SceneManager.LoadScene(0);
+
+            print(MapManager.currLoc + "+1 == " + MapManager.map.Length);
+            if (MapManager.currLoc == MapManager.map.Length)//***CONTINUE HERE
+            {
+                print("hello");
+                SceneManager.LoadScene(5);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
