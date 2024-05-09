@@ -90,9 +90,9 @@ public class TravelEvent : MonoBehaviour
         print("in pass day!");
 
         Invoke("startEncounter", 1);
-        Invoke("stopParty", 2);
         Invoke("updateStats", 2);
-        Invoke("setStats", 2);
+        Invoke("stopParty", 2);
+        Invoke("setStats", 3);
         Invoke("resetLoop", 4);
 
         UnityEngine.Debug.Log("day passed!");
@@ -110,6 +110,7 @@ public class TravelEvent : MonoBehaviour
 
     void setStats()
     {
+        print("--Here we are in set stats.");
         statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "\n" + MapManager.currDist + "</color> miles to <color=#ff0083>" + MapManager.map[MapManager.currLoc].name + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions";//nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
 
         //give player the chance to exit
@@ -119,17 +120,6 @@ public class TravelEvent : MonoBehaviour
         }
         exitScene = true;
     }
-
-    /*
-    void updateStats()
-    {
-        UnityEngine.Debug.Log("in updateStats!");
-
-        StatsManager.updateDate();
-        StatsManager.chooseWeather();
-        StatsManager.updateDistance();
-        StatsManager.updateHealth();
-    }*/
 
     void startParty()
     {
@@ -161,7 +151,7 @@ public class TravelEvent : MonoBehaviour
     IEnumerator createUpdate(string message)
     {
         print("hi");
-        UnityEngine.Debug.Log("create function entered!");
+        UnityEngine.Debug.Log("--create function entered!");
 
         updateWindow.SetActive(true);
         updateText.text = message;
@@ -180,8 +170,8 @@ public class TravelEvent : MonoBehaviour
             print(MapManager.currLoc);
             arrived = false;
 
-            print(MapManager.currLoc + "+1 == " + MapManager.map.Length);
-            if (MapManager.currLoc == MapManager.map.Length)//***CONTINUE HERE
+            print(MapManager.currLoc + " == " + MapManager.map.Length);
+            if (MapManager.currLoc == MapManager.map.Length)
             {
                 print("hello");
                 SceneManager.LoadScene(5);
@@ -355,7 +345,7 @@ public class TravelEvent : MonoBehaviour
         UnityEngine.Debug.Log(text);
     }
     /*TO DO:
-     * Fix arriving at end
+     * 
      * 
      */
 }

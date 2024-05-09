@@ -15,13 +15,13 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 100, 100, 100, 100, 100 };
+    public static int[] healthNum = { 1, 1, 1, 1, 100 };
     public static int averageHP= 100;
 
     public static int day = 1;
     public static int seasonNum = 0;
     public static int weatherNum = 0;
-    public static int food = 5000;//****
+    public static int food = 500;
     //public static int nextWay = 100;
     public static int alive = 5;
 

@@ -71,8 +71,8 @@ public class MapManager : MonoBehaviour
             shopkeeper = sName;
         }
     }
-
-    public static void updateDistance()
+    
+  public static void updateDistance()
     {
         if (StatsManager.pace == "Steady")
         {
@@ -84,7 +84,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            currDist -= 100;//****
+            currDist -= 50;
         }
 
         if(currDist <= 0)
@@ -97,7 +97,11 @@ public class MapManager : MonoBehaviour
     public static void updateLocation()
     {
         currLoc++;
-        currDist = map[currLoc].distance;
+        
+        if(currLoc != map.Length)
+        {
+            currDist = map[currLoc].distance;
+        }
     }
     /*
     Wayfinder createWF(string wName, int dist, string sName, string sKeeper)
