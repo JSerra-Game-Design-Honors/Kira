@@ -23,18 +23,47 @@ public class MapManager : MonoBehaviour
      * Contains: Monsters, Objects, Biome Type, Luck??
      */
 
-    public static Wayfinder WF1 = new Wayfinder("The Wanderer's Inn", 150, "Inn Shop", "Foxspark");
-    public static Wayfinder WF2 = new Wayfinder("The Outpost", 107, "The Outpost", "Greywren");
-    public static Wayfinder WF3 = new Wayfinder("Mountain's Gate", 108, "NULL", "NULL");
-    public static Wayfinder WF4 = new Wayfinder("Location 4", 109, "NULL", "NILL");
-    public static Wayfinder WF5 = new Wayfinder("The End", 110, "NULL", "NULL");//Greywren
+    public static Wayfinder ST = new Wayfinder("Sheol City", 0, "City Emporium", "NAME");
+    public static Wayfinder WF1 = new Wayfinder("City Wall", 50, "NULL", "NULL");
+    public static Wayfinder WF2 = new Wayfinder("Inn", 100, "Inn Shop", "NAME");
+    public static Wayfinder WF3 = new Wayfinder("Gate", 50, "NULL", "NULL");
+    public static Wayfinder WF4 = new Wayfinder("Meadow", 100, "NULL", "NULL");
+    public static Wayfinder WF5 = new Wayfinder("Village", 200, "General Store", "NAME");
+    public static Wayfinder WF6 = new Wayfinder("River", 100, "NULL", "NULL");
+    public static Wayfinder WF7 = new Wayfinder("Cornerstone", 150, "NULL", "NULL");
+    public static Wayfinder WF8 = new Wayfinder("Tavern", 250, "Foxspark's Stash", "Foxspark");
+    public static Wayfinder WF9 = new Wayfinder("Marsh", 150, "NULL", "NULL");
+    public static Wayfinder WF10 = new Wayfinder("Willow", 150, "NULL", "NULL");
+    public static Wayfinder WF11 = new Wayfinder("Hollow", 200, "NULL", "NULL");
+    public static Wayfinder WF12 = new Wayfinder("Camp", 350, "Trading Post", "NAME");
+    public static Wayfinder WF13 = new Wayfinder("Dragon", 200, "NULL", "NULL");
+    public static Wayfinder WF14 = new Wayfinder("Chasm", 200, "NULL", "NULL");
+    public static Wayfinder WF15 = new Wayfinder("Outpost", 250, "Outpost", "Greywren");
+    public static Wayfinder WF16 = new Wayfinder("Graveyard", 350, "NULL", "NULL");
+    public static Wayfinder WF17 = new Wayfinder("Gate", 500, "NULL", "NULL");
+    public static Wayfinder EN = new Wayfinder("The Peak", 200, "NULL", "NULL");
+
 
     public static Wayfinder[] map = {
+       ST,
        WF1,
        WF2,
        WF3,
        WF4,
-       WF5
+       WF5,
+       WF6,
+       WF7,
+       WF8,
+       WF9,
+       WF10,
+       WF11,
+       WF12,
+       WF13,
+       WF14,
+       WF15,
+       WF16,
+       WF17,
+       EN
     };
 
     public static int currLoc = 0;

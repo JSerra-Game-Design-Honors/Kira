@@ -12,6 +12,12 @@ public class WalkScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
+
+
+
         animator = GetComponent<Animator>();
         animator.speed = 0;
     }
