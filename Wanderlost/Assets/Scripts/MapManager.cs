@@ -23,11 +23,11 @@ public class MapManager : MonoBehaviour
      * Contains: Monsters, Objects, Biome Type, Luck??
      */
 
-    public static Wayfinder WF1 = new Wayfinder("The Wanderer's Inn", 150, "Inn Shop", "Foxspark");
+    public static Wayfinder WF1 = new Wayfinder("The Tavern", 105, "The Tavern's Shop", "Foxspark");
     public static Wayfinder WF2 = new Wayfinder("The Outpost", 107, "The Outpost", "Greywren");
-    public static Wayfinder WF3 = new Wayfinder("Mountain's Gate", 108, "NULL", "NULL");
+    public static Wayfinder WF3 = new Wayfinder("Location 3", 108, "NULL", "NULL");
     public static Wayfinder WF4 = new Wayfinder("Location 4", 109, "NULL", "NILL");
-    public static Wayfinder WF5 = new Wayfinder("The End", 110, "NULL", "NULL");//Greywren
+    public static Wayfinder WF5 = new Wayfinder("The End", 110, "NULL", "NULL");
 
     public static Wayfinder[] map = {
        WF1,

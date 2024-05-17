@@ -345,7 +345,7 @@ public class TravelEvent : MonoBehaviour
         UnityEngine.Debug.Log(text);
     }
     /*TO DO:
-     * Make map & gui & story :)
+     * 
      * 
      */
 }
