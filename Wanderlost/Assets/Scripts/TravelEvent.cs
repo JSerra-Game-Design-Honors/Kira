@@ -111,7 +111,7 @@ public class TravelEvent : MonoBehaviour
     void setStats()
     {
         print("--Here we are in set stats.");
-        statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> in <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "\n" + MapManager.currDist + "</color> miles to <color=#ff0083>" + MapManager.map[MapManager.currLoc].name + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions";//nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
+        statsText.text = "Day <color=#ff0083>" + StatsManager.day + "</color> of <color=#ff0083>" + StatsManager.seasonsSet[StatsManager.seasonNum] + "\n" + MapManager.currDist + "</color> miles to <color=#ff0083>" + MapManager.map[MapManager.currLoc].name + "</color>\nWeather: <color=#ff0083>" + StatsManager.weather + "</color>\nHealth: <color=#ff0083>" + StatsManager.health + "</color>\nFood: <color=#ff0083>" + StatsManager.food + "</color> portions";//nNext Wayfinder: <color=#ff0083>" + StatsManager.nextWay + "</color> leagues";
 
         //give player the chance to exit
         if (!arrived)

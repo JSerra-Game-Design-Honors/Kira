@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day X in XXXXX
+  m_text: 'Day X of XXXXX
 
     XXX miles to XXXXX
 

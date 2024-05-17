@@ -15,7 +15,7 @@ public class StatsManager : MonoBehaviour{
     public static string rations = "Filling";
     public static string weather = "Warm";
     public static string health = "Good";
-    public static int[] healthNum = { 100, 100, 100, 100, 100 };
+    public static int[] healthNum = { 1, 1, 1, 1, 100 };
     public static int averageHP= 100;
 
     public static int day = 1;
@@ -25,7 +25,7 @@ public class StatsManager : MonoBehaviour{
     //public static int nextWay = 100;
     public static int alive = 5;
 
-    public static string[] seasonsSet = { "City Outskirts", "Notos", "Zephyrus", "Eurus", "Boreas"};
+    public static string[] seasonsSet = { "Summer", "Autumn", "Winter", "Spring" };
     public static string[,] weatherSet = { { "Warm", "Hot", "Very Hot", "Heat Wave" }, {"Cool", "Cold", "Rainy", "Stormy"}, {"Cold", "Very Cold", "Snowy", "Blizzard"}, {"Cool", "Warm", "Rainy", "Stormy"} };
 
     static GameObject travelManager = GameObject.Find("TravelManager");
